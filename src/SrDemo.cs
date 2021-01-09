@@ -2093,7 +2093,6 @@ namespace SrDemo
             //直接显示
             if (_IsRfidDatabaseWork)
             {
-                InsertDatabase(id);
                 // db.InsertMultiData(0);
             }
             if (_IsActiveDatabaseWork)
@@ -2857,7 +2856,7 @@ namespace SrDemo
             dal.Inserts(epcString_list.Select(epc => new Tracking()
             {
                 TrackingId = epc,
-                CreatedDateTime = DateTimeOffset.UtcNow
+                CreatedDateTime = DateTime.Now
             }).ToList());
         }
 
@@ -3135,7 +3134,7 @@ namespace SrDemo
             var item = new Tracking()
             {
                 TrackingId = epc,
-                CreatedDateTime = DateTimeOffset.Now
+                CreatedDateTime = DateTime.Now
             };
             trackingDal.Insert(item);
         }

@@ -6,6 +6,6 @@ namespace TrackPerson.DAL.Entities
     {
         public int Id { get; set; }
         public string TrackingId { get; set; }
-        public DateTimeOffset CreatedDateTime { get; set; }
+        public DateTime CreatedDateTime { get; set; }
     }
 }
