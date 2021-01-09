@@ -1,0 +1,32 @@
+
+import "Request.proto";
+import "Respond.proto";
+import "Command.proto";
+import "Other.proto";
+
+package hrvv;
+
+option java_package = "hrv.codec.protobuf";
+option java_outer_classname = "MessageProto";
+
+
+
+message Message
+{
+    enum MSG {
+	REQUEST = 0x01;
+	RESPOND = 0x02;
+	COMMAND = 0x03;
+	OTHER = 0x04;
+	}
+
+    required MSG type = 1;
+	required fixed32 sequence = 2;
+
+	optional Request request = 3;                //???????? ????? ???? ?????
+	optional Respond respond = 4;             //?????
+	optional Command  command = 5;              //?????????
+	optional Other other = 6;                   //  ??
+}
+
+

@@ -1,0 +1,15 @@
+package hrvv;
+
+option java_package = "hrv.codec.protobuf";
+option java_outer_classname = "OtherProto";
+
+message Other 
+{
+   extensions 100 to max;
+    enum Type
+	{
+	    REGISTER = 0x00;	
+	}
+	required bytes type = 1;
+}
+

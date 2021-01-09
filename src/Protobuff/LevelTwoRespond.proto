@@ -1,0 +1,182 @@
+package hrvv;
+import "Respond.proto";
+
+
+
+option java_package = "hrv.codec.protobuf";
+option java_outer_classname = "LevelTwoRespondProto";
+
+
+
+
+
+message OperResult
+{
+	required int32 result = 1;
+	required int32 errornum = 2;	
+	required string errormessage =3;
+	extend Respond
+	{
+		optional OperResult operresult = 100;
+	}
+}
+
+message MACAndDev
+{
+   required string MAC = 1;
+   required string DevID = 2;
+   required int32  devices = 3;
+   required int32  TransMode = 4;
+   required int32  Baud = 5;
+   	extend Respond
+	{
+		optional MACAndDev macanddev = 229;
+	}
+}
+
+message InventoryRespond
+{
+   required int32 sta = 1;
+   required int32 ant = 2;
+   required int32  num = 3;
+   required int32  sessionLen = 4;
+   optional string session = 5;
+   	extend Respond
+	{
+		optional InventoryRespond respondInventoryRespond = 230;
+	}
+}
+
+message InfraRedRespond
+{
+   required int32 Dir = 1;
+   	extend Respond
+	{
+		optional InfraRedRespond respondInfraRedRespond = 231;
+	}
+}
+
+message DoorStatusRespond
+{
+   required int32 type = 1;
+   required int32 DoorStatusGroupoOne = 2;
+   required int32 DoorStatusGroupoTwo = 3;
+   required int32 DoorStatusGroupoTh = 4;
+   required int32 DoorStatusGroupoFour = 5;
+   	extend Respond
+	{
+		optional DoorStatusRespond respondDoorStatusRespond = 232;
+	}
+}
+
+
+message FileMoveEvent
+{
+    required int64 serialNumber = 1;
+	required int32 enentType = 2;                     //in or out
+	required string fileName = 3;
+	required string EPC = 4;
+	required string enentDev = 5;                 
+	required int32  ant = 6;
+	required string operatorCard = 7;           //Who has caused the event
+	optional string info = 8;                 //note
+}
+
+
+message HFSetPWDRespond
+{
+	required int32 ant = 1;
+	extend Respond
+	{
+		optional HFSetPWDRespond respondHFSetPWD = 318;
+	}
+}
+
+message HFSetEASRespond
+{
+	required int32 ant = 1;
+	extend Respond
+	{
+		optional HFSetEASRespond respondHFSetEASRespond = 317;
+	}
+}
+
+message HFWriteTagRespond
+{
+	required int32 respond = 1;
+	extend Respond
+	{
+		optional HFWriteTagRespond respondHFWriteTagRespond = 315;
+	}
+}
+
+message HFReadTagRespond
+{
+	required int32 number = 1;
+	required int32 size = 2;	
+	required int32 status = 3;
+	required string data = 4;
+	required int32 antID = 5;
+	extend Respond
+	{
+		optional HFReadTagRespond respondHFReadTagRespond = 313;
+	}
+}
+
+message HFStopQueryUIDRespond
+{
+    required int32 ID = 1;
+	extend Respond
+	{
+		optional HFStopQueryUIDRespond respondHFStopQueryUIDRespond = 311;
+	}
+}
+
+message HFCircleQueryUIDRespond
+{
+    required int32 type = 1;
+	required string UID = 2;
+	required int32 status = 3;
+	required int32 RSSI = 4;
+	required int32 antID = 5;
+	required int32 time = 6;
+	required int32 dir = 7;
+	extend Respond
+	{
+		optional HFCircleQueryUIDRespond respondHFCircleQueryUIDRespond = 309;
+	}
+}
+
+message HFSingleQueryUIDEndRespond
+{
+    required int32 type = 1;
+	required int32 RD_Status = 2;
+	required int32 count = 3;
+	required int32 HW_Status = 4;
+	extend Respond
+	{
+		optional HFSingleQueryUIDEndRespond respondHFSingleQueryUIDEndRespond = 307;
+	}
+}
+
+message HFSingleQueryUIDRespond
+{
+    required int32 type = 1;
+	required string UID = 2;
+	required int32 status = 3;
+	required int32 RSSI = 4;	
+	required int32 ant = 5;
+	extend Respond
+	{
+		optional HFSingleQueryUIDRespond respondHFSingleQueryUIDRespond = 306;
+	}
+}
+
+message HFCurrencyRespond
+{
+    required int32 ID = 1;
+	extend Respond
+	{
+		optional HFStopQueryUIDRespond respondHFStopQueryUIDRespond = 320;
+	}
+}

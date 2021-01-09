@@ -1,0 +1,767 @@
+import "Command.proto";
+import "Respond.proto";
+
+package hrvv;
+
+option java_package = "hrv.codec.protobuf";
+option java_outer_classname = "LevelTwoCommandProto";
+
+
+//power
+message Power
+{
+	required int32 readpower = 1;
+	required int32 writepower = 2;
+	required bool loop = 3;
+	extend Command
+	{
+		optional Power commandpower = 100;
+	}
+	extend Respond
+	{
+		optional Power respondpower = 200;
+	}
+}
+
+//Gpio
+message Gpio
+{
+	required int32 gpio = 1;
+	required int32 state = 2;
+	optional int32 time = 3;
+	extend Command
+	{
+		optional Gpio commandgpio = 101;
+	}
+	extend Respond
+	{
+		optional Gpio respondgpio= 201;
+	}
+}
+
+//Frequencey
+message FrequencyPoint
+{
+    required int32 count = 1;
+	required  string point = 2;
+	extend Command
+	{
+		optional FrequencyPoint commandfrequencypoint = 102;
+	}
+	extend Respond
+	{
+		optional FrequencyPoint respondfrequencypoint = 202;
+	}
+}
+
+//Carrier
+message Carrier
+{
+	required int32 carrier = 1;
+	extend Command
+	{
+		optional Carrier commandcarrier = 103;
+	}
+	extend Respond
+	{
+		optional Carrier respondcarrier= 203;
+	}
+}
+
+
+//Gen2
+message Gen2
+{
+	required int32 algorithm = 1;
+	required int32 StartQ = 2;
+	required int32 MinQ = 3;
+	required int32 MaxQ = 4;
+	required int32 select = 5;
+	required int32 session = 6;
+	required int32 target = 7;
+	extend Command
+	{
+		optional Gen2 commandgen2 = 104;
+	}
+	extend Respond
+	{
+		optional Gen2 respondgen2 = 204;
+	}
+}
+
+//WorkAnt
+message WorkAnt
+{
+	required int32 data1 = 1;
+	required int32 data2 = 2;
+	extend Command
+	{
+		optional WorkAnt commandworkant = 105;
+	}
+	extend Respond
+	{
+		optional WorkAnt respondworkant= 205;
+	}
+}
+
+//FrequencyArea
+message FrequencyArea
+{
+	required int32 area = 1;
+	extend Command
+	{
+		optional FrequencyArea commandarea = 106;
+	}
+	extend Respond
+	{
+		optional FrequencyArea respondarea= 206;
+	}
+}
+
+
+//Interrupted
+message Interrupted
+{
+	required int32 interrupted = 1;
+	extend Command
+	{
+		optional Interrupted commandinterrupted = 107;
+	}
+	extend Respond
+	{
+		optional Interrupted respondinterrupted = 207;
+	}
+}
+
+//WorkTime
+message WorkTime
+{
+	required int32 worktime = 1;
+	extend Command
+	{
+		optional WorkTime commandworktime = 108;
+	}
+	extend Respond
+	{
+		optional WorkTime respondworktime = 208;
+	}
+}
+
+//FastID
+message FastID
+{
+	required bool fastID = 1;
+	extend Command
+	{
+		optional FastID commandfastID = 109;
+	}
+	extend Respond
+	{
+		optional FastID respondfastID = 209;
+	}
+}
+
+//QT
+message QT
+{
+	required int32 flag = 1;
+	required string readdata = 2;
+	extend Command
+	{
+		optional QT commandqt = 110;
+	}
+	extend Respond
+	{
+		optional QT respondfqt = 210;
+	}
+}
+
+//Tagfocus
+message Tagfocus
+{
+	required bool tagfocus = 1;
+	extend Command
+	{
+		optional Tagfocus commandtagfocus = 111;
+	}
+	extend Respond
+	{
+		optional Tagfocus respondftagfocus = 211;
+	}
+}
+
+//Version
+message Version
+{
+    required string FirmVersion = 1;
+	required string HardVersion = 2;
+	extend Command
+	{
+		optional Version commandversion = 112;
+	}
+	extend Respond
+	{
+		optional Version respondfversion = 212;
+	}
+}
+
+
+//ReadTag
+message ReadTag
+{
+    required int32  bank = 1;
+	required int32  startAdd = 2;
+	required int32  len = 3;
+	optional string  password = 4;
+	optional int32   fliter = 5;
+	optional int32   fliterlen = 6;
+	optional string  fliterdata = 7;
+	optional string  readdata = 8;
+	extend Command
+	{
+		optional ReadTag commandreaedtag = 113;
+	}
+	extend Respond
+	{
+		optional ReadTag respondfreadtag = 213;
+	}
+}
+
+
+//WriteTag
+message WriteTag
+{
+    required int32  bank = 1;
+	required int32  startAdd = 2;
+	required int32  len = 3;
+	optional string  password = 4;
+	optional int32  fliter = 5;
+	optional int32  fliterlen = 6;
+	optional string  fliterdata= 7;
+	optional string  writedata = 8;
+	optional int32  ant = 9;
+	extend Command
+	{
+		optional WriteTag commandreaedtag = 114;
+	}
+	extend Respond
+	{
+		optional WriteTag respondfreadtag = 214;
+	}
+}
+
+
+
+//KillTag
+message KillTag
+{
+    required int32  bank = 1;
+	required int32  startAdd = 2;
+	required int32  len = 3;
+	optional string  password = 4;
+	optional int32  fliter = 5;
+	optional int32  fliterlen = 6;
+	optional string  fliterdata= 7;
+	optional int32  ant = 8;
+	extend Command
+	{
+		optional KillTag commandkilltag = 115;
+	}
+	extend Respond
+	{
+		optional KillTag respondfkilltag = 215;
+	}
+}
+
+//Wifi
+message Wifi
+{
+    required string  ssid = 1;
+	required string  pwd = 2;
+	required string  readerIP = 3;
+	required string  readermask = 4;
+	required string  readergw = 5;
+	required string  Serverip = 6;
+	required int32   ServerPort= 7;
+	required string  mode = 8;
+	required string  algorithm= 9;
+	extend Command
+	{
+		optional Wifi commandwifi = 116;
+	}
+	extend Respond
+	{
+		optional Wifi respondwifi = 216;
+	}
+}
+
+//SIM
+message SIM
+{
+    required string  apn = 1;
+	required string  usr = 2;
+	required string  pwd = 3;
+	required string  serverIP = 4;
+	required string  serverport = 5;
+	optional   bytes   reserve= 6;
+	extend Command
+	{
+		optional SIM commandsim = 117;
+	}
+	extend Respond
+	{
+		optional SIM respondsim = 217;
+	}
+}
+
+//WorkMode
+message WorkMode
+{
+    required int32   triggertimeout = 1;
+	required bool    wiegand = 2;
+	required int32   wiegand_26_34 = 3;
+	required int32   workmode = 4;	
+	required int32   starttrigger = 5;
+	required int32   trigger_single_multi= 6;
+	required bool    readbuzzer= 7;
+	required bool    writebuzzer= 8;
+	required bool    heart= 9;
+	required int32   sendduty = 10;
+	required int32   hearttime = 11;
+	required int32   flitertype= 12;
+	required int32   flitertime= 13;
+	required int32   alarmmode= 14;
+	required int32   checkmode= 15;
+	required int32   checkdata1= 16;
+	required int32   checkdata2= 17;
+	optional string  mainboardhardversion = 18;
+	optional string  mainboardfirmversion = 19;
+	optional string  modulehardversion = 20;
+	optional string  modulefirmversion = 21;
+	extend Command
+	{
+		optional WorkMode commandworkmode = 118;
+	}
+	extend Respond
+	{
+		optional WorkMode respondworkmode = 218;
+	}
+}
+
+//Net
+message Net
+{
+    required string  mac = 1;
+	required string  readerIP = 2;
+	required string  mask = 3;
+	required string  gateway = 4;
+	required string  dns = 5;
+	required string  serverIP= 6;
+	required int32   serverport= 7;	
+	required int32   readerport= 8;
+	required int32   more= 9;
+	extend Command
+	{
+		optional Net commandnet = 119;
+	}
+	extend Respond
+	{
+		optional Net respondnet = 219;
+	}
+}
+
+//Tempreture
+message Tempreture
+{
+    optional string  tempreture = 1;
+	extend Command
+	{
+		optional Tempreture commandtem = 120;
+	}
+	extend Respond
+	{
+		optional Tempreture respondtem = 220;
+	}
+}
+
+//MultiEPC
+message MultiEPC
+{
+    required int32   ant = 1;
+	required string  epc = 2;
+	required int32   pc = 3;
+	required float   rssi = 4;
+	optional int32   direction = 5;	
+	required string  IP= 6;
+	required int32   count= 7;	
+	required string  time= 8;
+	required int32   retain =9;
+	extend Command
+	{
+		optional MultiEPC commandepc = 121;
+	}
+	extend Respond
+	{
+		optional MultiEPC respondepc = 221;
+	}
+}
+
+//2.4G ReaderInfo
+message ReaderInfo
+{
+    required int32   save = 1;
+	required int32   version = 2;
+	required int32   txpower = 3;
+	required int32   rxpower = 4;
+	optional int32   workstate = 5;	
+	required int32   channel= 6;
+	required int32   tagtype= 7;	
+	required int32   mode= 8;
+	extend Command
+	{
+		optional ReaderInfo commandreaderinfo = 122;
+	}
+	extend Respond
+	{
+		optional ReaderInfo respondreaderinfo = 222;
+	}
+}
+
+//2.4G MultiID
+message MultiID
+{
+    optional int32   tempreture = 1;
+	required string  ID = 2;
+	required double  rssi = 3;
+	optional int32   power = 4;
+	optional int32   remove = 5;	
+	optional int32   battery = 6;
+	required int32   count= 7;
+	required string  clientIP= 8;	
+	required string  time= 9;
+	extend Command
+	{
+		optional MultiID commandmultiID = 123;
+	}
+	extend Respond
+	{
+		optional MultiID respondmultiID = 223;
+	}
+}
+
+message MQTTTheme
+{
+     required string Theme = 1;
+	 extend Command
+	{
+		optional MQTTTheme commandMQTTTheme = 124;
+	}
+	extend Respond
+	{
+		optional MQTTTheme respondMQTTTheme = 224;
+	}
+}
+
+message MQTT
+{
+     required string user = 1;
+	 required string pwd = 2;
+	 required int32  keeptime = 3; 
+	 extend Command
+	{
+		optional MQTT commandMQTT = 125;
+	}
+	extend Respond
+	{
+		optional MQTT respondMQTT = 225;
+	}
+}
+
+//Lock
+message LockTag
+{
+    required int32  bank = 1;
+	required int32  startAdd = 2;
+	required int32  len = 3;
+	optional string password = 4;
+	optional int32  fliter = 5;
+	optional int32  fliterlen = 6;
+	optional string  fliterdata= 7;
+	optional int32  action = 8;
+	optional int32  mask = 9;
+	optional int32  ant = 10;
+	extend Command
+	{
+		optional LockTag commandlocktag = 126;
+	}
+	extend Respond
+	{
+		optional LockTag respondflocktag = 226;
+	}
+}
+
+//AntTime
+message AntTime
+{
+    required int32  ant1 = 1;
+	required int32  ant2 = 2;
+	required int32  ant3 = 3;
+	required int32  ant4 = 4;
+	required int32  waittime = 5;
+	optional int32  reserve = 6;
+	extend Command
+	{
+		optional AntTime commandanttime = 127;
+	}
+	extend Respond
+	{
+		optional AntTime respondanttime = 227;
+	}
+}
+
+message Beeep
+{
+    required int32 beep = 1;
+    required int32 count = 2;
+  	extend Command
+	{
+		optional Beeep commandbeep = 128;
+	}
+	extend Respond
+	{
+		optional Beeep respondbeep = 228;
+	}
+}
+
+message InventoryAndElectronicLock
+{
+    required int32 ant = 1;
+    required int32 sta = 2;
+	required int32 reserve = 3;
+    required int32  sessionLen = 4;
+    optional string session = 5;
+  	extend Command
+	{
+		optional InventoryAndElectronicLock commandInventoryAndElectronicLock = 129;
+	}
+}
+
+
+message HeartBeat
+{
+    required int32 recmd = 1;
+    required int32 count = 2;
+	optional int32 time = 3;
+  	extend Command
+	{
+		optional HeartBeat commandHeartBeat = 130;
+	}
+	extend Respond
+	{
+		optional HeartBeat respondHeartBeat = 233;
+	}
+}
+
+
+
+message HFVersion
+{
+    required int32 ID = 1;
+    optional int32 hardversion = 2;
+	optional int32 firmversion = 3;
+	extend Respond
+	{
+		optional HFVersion respondHFVersion = 300;
+	}
+	extend Command
+	{
+		optional HFVersion commandHFVersion = 300;
+	}
+}
+
+message HFAntStatus
+{
+    required int32 ID = 1;
+    optional int32 status = 2;
+	extend Respond
+	{
+		optional HFAntStatus respondHFAntStatus = 301;
+	}
+	extend Command
+	{
+		optional HFAntStatus commandHFAntStatus = 301;
+	}
+}
+
+message HFSpecifyAntStatus
+{
+    required int32 ID = 1;
+    optional int32 status = 2;
+	extend Respond
+	{
+		optional HFSpecifyAntStatus respondHFSpecifyAntStatus = 302;
+	}
+	extend Command
+	{
+		optional HFSpecifyAntStatus commandHFSpecifyAntStatus = 302;
+	}
+}
+
+message HFSpecofyAntEnable
+{
+    required int32 ID = 1;
+    required int32 selectant = 2;
+	required int32 worktime = 3;
+	extend Command
+	{
+		optional HFSpecofyAntEnable commandHFSpecofyAntEnable = 303;
+	}
+}
+
+message HFAutoSpecofyAntEnable
+{
+    required int32 ID = 1;
+    required int32 worktime = 2;
+	extend Command
+	{
+		optional HFAutoSpecofyAntEnable commandHFAutoSpecofyAntEnable = 304;
+	}
+}
+
+message HFSingleQueryUID
+{
+    required int32 ID = 1;
+    required int32 RSSI = 2;
+	extend Command
+	{
+		optional HFSingleQueryUID commandHFSingleQueryUID = 305;
+	}
+}
+
+
+message HFCircleQueryUID
+{
+    required int32 ID = 1;
+	required int32 counts = 3;
+	required int32 RSSI = 4;
+	extend Command
+	{
+		optional HFCircleQueryUID respondHFCircleQueryUID = 308;
+	}
+}
+
+
+message HFStopQueryUID
+{
+    required int32 ID = 1;
+	extend Command
+	{
+		optional HFStopQueryUID respondHFStopQueryUID = 310;
+	}
+}
+
+message HFReadTag
+{
+    required int32 ID = 1;
+	required string pwd = 2;
+	required string UID = 3;	
+	required int32 ant_sel = 4;
+	required int32 addr = 5;
+	required int32 number = 6;
+	extend Command
+	{
+		optional HFReadTag respondHFReadTag = 312;
+	}
+}
+
+message HFWriteTag
+{
+    required int32 ID = 1;
+	required string pwd = 2;
+	required string UID = 3;	
+	required int32 ant_sel = 4;
+	required int32 addr = 5;
+	required int32 number = 6;
+	required string data = 7;
+	extend Command
+	{
+		optional HFWriteTag respondHFWriteTag = 314;
+	}
+}
+
+
+message HFSetEAS
+{
+    required int32 ID = 1;
+	required string pwd = 2;
+	required string UID = 3;	
+	required int32 ant_sel = 4;
+	required int32 option = 5;
+	extend Command
+	{
+		optional HFSetEAS respondHFSetEAS = 316;
+	}
+}
+
+
+message HFSetPWD
+{
+    required int32 ID = 1;
+	required string pwd = 2;
+	required string UID = 3;	
+	required int32 ant_sel = 4;
+	required string oldpassword = 5;
+	required string newpassword = 6;
+	extend Command
+	{
+		optional HFSetPWD commandHFSetPWD = 318;
+	}
+}
+
+message HFWorkModeRespond
+{
+    required int32 ID = 1;
+	required int32 AudibleAndVisualalarm  = 2;
+	required int32 count = 3;	
+	required int32 mode = 4;
+	required int32 relay1 = 5;
+	required int32 relay2 = 6;
+	required int32 time = 7;
+	required int32 tagtype = 8;
+	required int32 dir = 9;
+	required int32 CascadeQuantity = 10;
+	required int32 MaterSlave = 11;
+	required int32 dev = 12;
+	extend Command
+	{
+		optional HFWorkModeRespond commandHFGetWorkModeRespond = 319;
+	}
+	extend Respond
+	{
+		optional HFWorkModeRespond respondHFGetWorkModeRespond = 319;
+	}
+}
+
+message HFGetWorkMode
+{
+    required int32 ID = 1;
+	extend Command
+	{
+		optional HFGetWorkMode commandHFGetWorkMode = 320;
+	}
+}
+
+message HFPower
+{
+    required int32 ID = 1;
+	optional int32  readpower = 2;
+	optional int32  writepower = 3;
+	extend Command
+	{
+		optional HFPower commandHFPower = 321;
+	}
+	extend Respond
+	{
+		optional HFPower respondHFPower = 321;
+	}
+}

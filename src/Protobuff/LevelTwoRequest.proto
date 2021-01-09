@@ -1,0 +1,26 @@
+package hrvv;
+import "Request.proto";
+import "Respond.proto";
+
+option java_package = "hrv.codec.protobuf";
+option java_outer_classname = "LevelTwoRespondProto";
+
+
+message DevName
+{
+	required string name = 1;
+	extend Request
+	{
+		optional DevName devname = 101;
+	}
+}
+
+message AccessAuthority
+{
+	required int32 ant = 1;
+	optional int32 retain = 2;
+	extend Request
+	{
+		optional AccessAuthority accessauthority = 102;
+	}
+}

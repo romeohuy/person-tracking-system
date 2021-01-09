@@ -1,4 +1,10 @@
-﻿//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Text;
+//using System.Threading.Tasks;
 
 namespace SrDemo.Log
 {
@@ -6,7 +12,7 @@ namespace SrDemo.Log
     {
         private static StreamWriter streamWriter; //写文件  
 
-        public static void WriteEvent(string message, string info)
+        public static void WriteEvent(string message,string info)
         {
             try
             {
@@ -17,7 +23,7 @@ namespace SrDemo.Log
                     directPath = AppDomain.CurrentDomain.BaseDirectory + "Data\\";
                     Directory.CreateDirectory(directPath);
                 }
-                directPath += string.Format(@"\{0}.log", "事件日志" + DateTime.Now.ToString("yyyy-MM-dd"));
+                directPath += string.Format(@"\{0}.log", "事件日志"+DateTime.Now.ToString("yyyy-MM-dd"));
                 if (streamWriter == null)
                 {
                     streamWriter = !File.Exists(directPath) ? File.CreateText(directPath) : File.AppendText(directPath);    //判断文件是否存在如果不存在则创建，如果存在则添加。

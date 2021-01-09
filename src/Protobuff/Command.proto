@@ -1,0 +1,88 @@
+package hrvv;
+
+
+option java_package = "hrv.codec.protobuf";
+option java_outer_classname = "CommandProto";
+
+message Command {
+	extensions 100 to max;                    //100???????
+	enum Type {
+		SET_POWER = 0x0000;                      //???????????
+		SET_GPIO = 0x0001;
+		SET_FREQUENCY_POINT = 0x0002;
+		SET_CARRIER = 0x0005;
+		SET_GEN2 = 0x0007;
+		SET_WORK_ANT = 0x08;
+		SET_FREQUENCY_AREA = 0x0009;
+        GET_CARRIER = 0x000F;
+        SET_WORK_INTERRUPTED = 0x001D;       
+        SET_WORK_TIME = 0x001F;
+        SET_FASTID = 0x0021;
+        SET_QT = 0x0026;
+        SET_TAGFOCUS = 0x0029;
+	    GET_HARD_VERSION = 0x000A;
+        GET_FIRM_VERSION = 0x000B;
+        GET_POWER = 0x000C;
+        GET_FREQUENCY_POINT= 0x000D;
+        GET_WORK_ANT = 0x0010;
+        GET_FREQUENCY_AREA = 0x0011;
+        GET_TEMPERATURE = 0x0012;
+        GET_GPIO = 0x0013;
+        GET_GEN2 = 0x0014;
+        START_SINGLE_EPC = 0x0016;
+        START_MULTI_EPC = 0x0017;
+        STOP_MULTI_EPC = 0x0018;
+        READ_TAGS = 0x0019;
+        WRITE_TAGS = 0x001A;
+        LOCK_TAGS = 0x001B;
+        KILL_TAGS = 0x001C;
+        GET_WORK_INTERRUPTED = 0x001E;
+        GET_WORK_TIME = 0x0020;
+        GET_FASTID = 0x0022;
+        GET_QT = 0x0027;
+        GET_TAGFOCUS = 0x002A;
+        GET_WORK_MODE = 0x0034;	
+        SET_WORK_MODE = 0x0037;
+		SET_GPIO_OUT = 0x003E;
+		INVENTORY_AND_ELECTRONICLOCK = 0x004A;
+		GET_DOOR_STATUS = 0x004C;
+		HEART_BEAT_RESPOND = 0x00D0;
+		GET_MULTI_ID = 0x00F1;
+		START_INFO = 0x00F3;
+		DOWN_DATA = 0x00FA;		
+		DOWN_DATA_RESPOND = 0x00FB;
+		ERROR_FLAG = 0x00FF;
+
+
+
+		ACTIVE_READER_READ_CONFIG = 0x1040;
+		ACTIVE_READER_START_CARRIER = 0x1004;
+		ACTIVE_READER_STOP_CARRIER = 0x1005;
+		ACTIVE_READER_RESTART = 0x1006;
+		ACTIVE_READER_FLITER = 0x1007;
+		ACTIVE_READER_WRITE_CONFIG = 0x10F1;
+		ACTIVE_READER_MODILE_VERSION = 0x1041;
+
+
+		HF_GET_VERSION = 0x200A;
+		QUERY_ANT_CONNECTION_STATUS = 0x2049;
+        QUERY_SPECIFYING_ANT_CONNECTION_STATUS = 0x204A;                
+        ENABLE_SPECIFYING_ANT = 0x204B;        
+        AUTO_ENABLE_ANT = 0x204C;      
+        SINGLE_QUERY_UID = 0x2016;      
+        CIRCLE_QUERY_UID = 0x2017;   
+        STOP_QUERY_UID = 0x2018;    
+        QUERY_DATA = 0x2019;         
+        WRITE_DATA = 0x201A;        
+        TAG_EAS_SETTING = 0x204D;   
+        TAG_PASSWORD_SETTING = 0x204E;    
+        HF_GET_WORK_MODE = 0x2034;      
+        HF_SET_WORK_MODE = 0x2037;      
+        HF_GET_POWER = 0x200C;         
+        HF_SET_POWER = 0x2000;     
+	}
+	required Type type = 1;
+	required string DevID = 2;
+	optional string timestamp = 3;
+	optional int32  reserve = 4;
+}

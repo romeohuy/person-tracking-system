@@ -1,7 +1,10 @@
-﻿//using System.Threading.Tasks;
-
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
+using System.Linq;
+using System.Text;
+//using System.Threading.Tasks;
 
 namespace SrDemo.Log
 {
@@ -9,7 +12,7 @@ namespace SrDemo.Log
     {
         private static StreamWriter streamWriter; //写文件  
 
-        public static void WriteError(string counts, string message)
+        public static void WriteError(string counts,string message)
         {
             try
             {
@@ -24,8 +27,8 @@ namespace SrDemo.Log
                 {
                     streamWriter = !File.Exists(directPath) ? File.CreateText(directPath) : File.AppendText(directPath);    //判断文件是否存在如果不存在则创建，如果存在则添加。
                 }
-                //   streamWriter.WriteLine("***********************************************************************");
-                streamWriter.WriteLine(DateTime.Now.ToString("HH:mm:ss") + "            " + "数量" + "            " + counts);
+             //   streamWriter.WriteLine("***********************************************************************");
+                streamWriter.WriteLine(DateTime.Now.ToString("HH:mm:ss") + "            "+"数量" + "            "+counts);
                 if (message != null)
                 {
                     streamWriter.WriteLine("输出信息：错误信息");

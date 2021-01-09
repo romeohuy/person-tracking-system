@@ -1,0 +1,25 @@
+package hrvv;
+
+
+option java_package = "hrv.codec.protobuf";
+option java_outer_classname = "RequestProto";
+
+message Request 
+{
+    extensions 100 to max;
+    enum Type
+	{
+	    REGISTER = 0x0000;	
+		GET_READER_NAME = 0x0001;
+		GET_READER_NAME_RESPOND = 0x1001;
+		SELECT_READER_TYPE = 0x0002;
+		SELECT_READER_TYPE_RESPOND = 0x1002;
+		ACCESS_AUTHORITY_SETTING_RESPOND = 0x1003;
+	}
+
+
+	required Type type = 1;
+	optional int32 option = 2;
+	optional int32 operresult = 3;
+	optional string errormessage = 4;
+}

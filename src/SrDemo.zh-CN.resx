@@ -1,0 +1,1121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Access" xml:space="preserve">
+    <value>标签操作</value>
+    <comment>display the  tabel:Access</comment>
+  </data>
+  <data name="Access_Bank" xml:space="preserve">
+    <value>内存区</value>
+    <comment>diaplay  Access_Bank label</comment>
+  </data>
+  <data name="Access_Data" xml:space="preserve">
+    <value>数据</value>
+    <comment>display  Access_Data Label</comment>
+  </data>
+  <data name="Access_Fliter" xml:space="preserve">
+    <value>过滤</value>
+    <comment>diaplay Access_Fliter  combox</comment>
+  </data>
+  <data name="Access_FliterType" xml:space="preserve">
+    <value>过滤类型</value>
+    <comment>diaplay  Access_FliterType label</comment>
+  </data>
+  <data name="Access_Fliter_FliterData" xml:space="preserve">
+    <value>过滤数据</value>
+    <comment>diaplay Access_Fliter_FliterData combox</comment>
+  </data>
+  <data name="Access_Fliter_FliterPWD" xml:space="preserve">
+    <value>访问密码</value>
+    <comment>diaplay  Access_Fliter_FliterPWD label</comment>
+  </data>
+  <data name="Access_Kill" xml:space="preserve">
+    <value>销毁</value>
+    <comment>diaplay   Access_Kill Label</comment>
+  </data>
+  <data name="Access_Kill_pwd" xml:space="preserve">
+    <value>销毁密码</value>
+    <comment>diaplay  Access_Kill_pwd Label</comment>
+  </data>
+  <data name="Access_Length" xml:space="preserve">
+    <value>长度</value>
+    <comment>diaplay  Access_Length label</comment>
+  </data>
+  <data name="Access_Lock" xml:space="preserve">
+    <value>锁定</value>
+    <comment>diaplay  Access_Lock button</comment>
+  </data>
+  <data name="Access_Lock_Area" xml:space="preserve">
+    <value>区域</value>
+    <comment>diaplay  Access_Lock_Area Label</comment>
+  </data>
+  <data name="Access_Lock_Forever" xml:space="preserve">
+    <value>永久锁定</value>
+    <comment>diaplay   Access_Lock_Forever  Label</comment>
+  </data>
+  <data name="Access_Lock_Mode" xml:space="preserve">
+    <value>模式</value>
+    <comment>diaplay  Access_Lock_Mode Label</comment>
+  </data>
+  <data name="Access_Lock_UnLock" xml:space="preserve">
+    <value>解锁</value>
+    <comment>diaplay   Access_Lock_UnLock Label</comment>
+  </data>
+  <data name="Access_Read" xml:space="preserve">
+    <value>读</value>
+    <comment>diaplay  Access_Read  button</comment>
+  </data>
+  <data name="Access_Read_Write" xml:space="preserve">
+    <value>读/写</value>
+    <comment>diaplay  Access_Read_Write label</comment>
+  </data>
+  <data name="Access_StartAdd" xml:space="preserve">
+    <value>起始地址</value>
+    <comment>diaplay  Access_StartAddlabel</comment>
+  </data>
+  <data name="Access_UnLock_Forever" xml:space="preserve">
+    <value>永久不锁定</value>
+    <comment>diaplay   Access_UnLock_Forever Label</comment>
+  </data>
+  <data name="Access_Write" xml:space="preserve">
+    <value>写</value>
+    <comment>diaplay  Access_Write button</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+    <comment>diaplay Close button</comment>
+  </data>
+  <data name="Configure" xml:space="preserve">
+    <value>配置</value>
+    <comment>display the  tabel:Configure</comment>
+  </data>
+  <data name="Configure_Ant" xml:space="preserve">
+    <value>天线工作时间</value>
+    <comment>diaplay  Configure_Ant Combox</comment>
+  </data>
+  <data name="Configure_FirmVersion" xml:space="preserve">
+    <value>模块版本</value>
+    <comment>diaplay  Configure_FirmVersion Label</comment>
+  </data>
+  <data name="Configure_Firm_Version" xml:space="preserve">
+    <value>固件版本</value>
+  </data>
+  <data name="Configure_Frequency" xml:space="preserve">
+    <value>频率区域</value>
+    <comment>diaplay  Configure_Frequency Label</comment>
+  </data>
+  <data name="Configure_Frequency_Creat" xml:space="preserve">
+    <value>创建</value>
+    <comment>diaplay  Configure_Frequency Label</comment>
+  </data>
+  <data name="Configure_Frequency_Points" xml:space="preserve">
+    <value>频率</value>
+    <comment>diaplay Configure_Frequency_Points  Label</comment>
+  </data>
+  <data name="Configure_Frequency_Sample" xml:space="preserve">
+    <value>样例</value>
+    <comment>diaplay  Configure_Frequency_Sample  Label</comment>
+  </data>
+  <data name="Configure_Frequency_Save" xml:space="preserve">
+    <value>保存</value>
+    <comment>diaplay  Configure_Frequency Label</comment>
+  </data>
+  <data name="Configure_Gen2_Max" xml:space="preserve">
+    <value>最大</value>
+    <comment>diaplay  Configure_Gen2_Max Label</comment>
+  </data>
+  <data name="Configure_Gen2_Min" xml:space="preserve">
+    <value>最小</value>
+    <comment>diaplay  Configure_Gen2_Min Label</comment>
+  </data>
+  <data name="Configure_Gen2_Start" xml:space="preserve">
+    <value>开始</value>
+    <comment>diaplay  Configure_Gen2_Start Label</comment>
+  </data>
+  <data name="Configure_Gen2_Type" xml:space="preserve">
+    <value>类型</value>
+    <comment>diaplay  Configure_Gen2_Type Label</comment>
+  </data>
+  <data name="Configure_Gpio_High" xml:space="preserve">
+    <value>高</value>
+    <comment>diaplay  Configure_Gpio_High  Label</comment>
+  </data>
+  <data name="Configure_Gpio_In" xml:space="preserve">
+    <value>输入</value>
+  </data>
+  <data name="Configure_Gpio_In_Out" xml:space="preserve">
+    <value>GPIO输出测试</value>
+    <comment>diaplay  Configure_Gpio_In_Out  Label</comment>
+  </data>
+  <data name="Configure_Gpio_Low" xml:space="preserve">
+    <value>低</value>
+    <comment>diaplay  Configure_Gpio_LOw  Label</comment>
+  </data>
+  <data name="Configure_Gpio_Out" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="Configure_HardVersion" xml:space="preserve">
+    <value>硬件版本</value>
+    <comment>diaplay  Configure_HardVersion Label</comment>
+  </data>
+  <data name="Configure_Interval" xml:space="preserve">
+    <value>间隔</value>
+  </data>
+  <data name="Configure_Off" xml:space="preserve">
+    <value>关闭</value>
+    <comment>diaplay  Off Label</comment>
+  </data>
+  <data name="Configure_On" xml:space="preserve">
+    <value>开启</value>
+    <comment>display  Configure_On Label</comment>
+  </data>
+  <data name="Configure_Power" xml:space="preserve">
+    <value>射频功率</value>
+    <comment>display  Configure_Power  Label</comment>
+  </data>
+  <data name="Configure_ReadPower" xml:space="preserve">
+    <value>读功率</value>
+    <comment>display  Configure_ReadPower Label</comment>
+  </data>
+  <data name="Configure_Temputer" xml:space="preserve">
+    <value>温度</value>
+    <comment>display  Configure_Temputer Label</comment>
+  </data>
+  <data name="Configure_Version" xml:space="preserve">
+    <value>版本</value>
+    <comment>display  Configure_Version Label</comment>
+  </data>
+  <data name="Configure_WaitTime" xml:space="preserve">
+    <value>等待时间</value>
+    <comment>display  Configure_WaitTime  Combox</comment>
+  </data>
+  <data name="Configure_WritePower" xml:space="preserve">
+    <value>写功率</value>
+    <comment>display  Configure_WritePower Label</comment>
+  </data>
+  <data name="Get" xml:space="preserve">
+    <value>获取</value>
+    <comment>display Get button</comment>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>无源标签盘存</value>
+    <comment>display the  tabel:Inventory</comment>
+  </data>
+  <data name="Inventory_Alldev" xml:space="preserve">
+    <value>所有设备</value>
+    <comment>display Inventory-All Reader label</comment>
+  </data>
+  <data name="Inventory_ClearData" xml:space="preserve">
+    <value>清除</value>
+    <comment>display Inventory_ClearData  button</comment>
+  </data>
+  <data name="Inventory_Count" xml:space="preserve">
+    <value>标签总数</value>
+    <comment>display Inventory_Count  lebel</comment>
+  </data>
+  <data name="Inventory_Monitor" xml:space="preserve">
+    <value>监听</value>
+    <comment>display the  buttonl:Monitor</comment>
+  </data>
+  <data name="Inventory_Single" xml:space="preserve">
+    <value>单次</value>
+    <comment>display Inventory-Single label</comment>
+  </data>
+  <data name="Inventory_Speed" xml:space="preserve">
+    <value>速度</value>
+    <comment>display Inventory_Speed  lebel</comment>
+  </data>
+  <data name="Inventory_Time" xml:space="preserve">
+    <value>时间</value>
+    <comment>display Inventory_Time  lebel</comment>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>工作模式</value>
+    <comment>display  Mode Tabel</comment>
+  </data>
+  <data name="Mode_Auto" xml:space="preserve">
+    <value>自动模式</value>
+    <comment>display  Mode_Auto Label</comment>
+  </data>
+  <data name="Mode_bit" xml:space="preserve">
+    <value>位</value>
+  </data>
+  <data name="Mode_Buzzer" xml:space="preserve">
+    <value>蜂鸣器</value>
+    <comment>display  Mode_Buzzer Label</comment>
+  </data>
+  <data name="Mode_Communication" xml:space="preserve">
+    <value>通信</value>
+    <comment>display  Mode_Communication Combox</comment>
+  </data>
+  <data name="Mode_Communication_DNS" xml:space="preserve">
+    <value>DNS</value>
+    <comment>display  Mode_Communication_DNS  Label</comment>
+  </data>
+  <data name="Mode_Communication_GateWay" xml:space="preserve">
+    <value>网关</value>
+    <comment>display  Mode_Communication_GateWay Label</comment>
+  </data>
+  <data name="Mode_Communication_IP" xml:space="preserve">
+    <value>IP</value>
+    <comment>display  Mode_Communication_IP Label</comment>
+  </data>
+  <data name="Mode_Communication_MAC" xml:space="preserve">
+    <value>MAC</value>
+    <comment>display  Mode_Communication_MAC Label</comment>
+  </data>
+  <data name="Mode_Communication_MASK" xml:space="preserve">
+    <value>子网掩码</value>
+    <comment>display  Mode_Communication_MASK Label</comment>
+  </data>
+  <data name="Mode_Communication_Port" xml:space="preserve">
+    <value>端口</value>
+    <comment>display  Mode_Communication_Port Label</comment>
+  </data>
+  <data name="Mode_Communication_Reader" xml:space="preserve">
+    <value>读写器</value>
+    <comment>display  Mode_Communication_Reader Label</comment>
+  </data>
+  <data name="Mode_Communication_Standard" xml:space="preserve">
+    <value>标准</value>
+    <comment>display  Mode_Communication_Standard Label</comment>
+  </data>
+  <data name="Mode_dev" xml:space="preserve">
+    <value>设备号</value>
+  </data>
+  <data name="Mode_Extra_port" xml:space="preserve">
+    <value>通信端口</value>
+  </data>
+  <data name="Mode_HeartBeat" xml:space="preserve">
+    <value>心跳间隔</value>
+    <comment>display  Mode_HeartBeat Label</comment>
+  </data>
+  <data name="Mode_Heart_dev" xml:space="preserve">
+    <value>心跳参数</value>
+  </data>
+  <data name="Mode_Level" xml:space="preserve">
+    <value>电平</value>
+    <comment>display  Level Label</comment>
+  </data>
+  <data name="ModeMasterslave" xml:space="preserve">
+    <value>主从模式</value>
+  </data>
+  <data name="Mode_Module" xml:space="preserve">
+    <value>模块</value>
+    <comment>display  Mode_Module Label</comment>
+  </data>
+  <data name="Mode_Multi" xml:space="preserve">
+    <value>循环</value>
+    <comment>display  Mode_Multi Label</comment>
+  </data>
+  <data name="Mode_Serever" xml:space="preserve">
+    <value>服务器</value>
+  </data>
+  <data name="Mode_TimeOut" xml:space="preserve">
+    <value>超时</value>
+    <comment>display  Mode_TimeOut Label</comment>
+  </data>
+  <data name="Mode_Trigger" xml:space="preserve">
+    <value>触发模式</value>
+    <comment>display  Mode_Trigger Label</comment>
+  </data>
+  <data name="Mode_Weigend" xml:space="preserve">
+    <value>韦根</value>
+    <comment>display  Mode_Weigend Label</comment>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>打开</value>
+    <comment>display Open button</comment>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>刷新</value>
+    <comment>display refresh button</comment>
+  </data>
+  <data name="Selectdev" xml:space="preserve">
+    <value>请单击选择要操作的设备</value>
+    <comment>display the  label:Click the Reader that you want to select</comment>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>设置</value>
+    <comment>display Set button</comment>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>开始</value>
+    <comment>display Start button</comment>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>停止</value>
+    <comment>display Stop button</comment>
+  </data>
+  <data name="WorkMode" xml:space="preserve">
+    <value>工作模式和基本参数</value>
+    <comment>display the  tabel:WorkMode</comment>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>连接</value>
+  </data>
+  <data name="OPClosemoniter" xml:space="preserve">
+    <value>关闭监听</value>
+  </data>
+  <data name="OPCloseserial" xml:space="preserve">
+    <value>关闭串口</value>
+  </data>
+  <data name="OPCloseServer" xml:space="preserve">
+    <value>关闭服务器</value>
+  </data>
+  <data name="OPFastID" xml:space="preserve">
+    <value>FastID</value>
+  </data>
+  <data name="OPGen2" xml:space="preserve">
+    <value>Gen2参数</value>
+  </data>
+  <data name="OPGPIO" xml:space="preserve">
+    <value>Gpio</value>
+  </data>
+  <data name="OPKillTags" xml:space="preserve">
+    <value>销毁标签</value>
+  </data>
+  <data name="OPlockTags" xml:space="preserve">
+    <value>锁定标签</value>
+  </data>
+  <data name="OPMulti" xml:space="preserve">
+    <value>循环查询EPC</value>
+  </data>
+  <data name="OPOpenserial" xml:space="preserve">
+    <value>打开串口</value>
+  </data>
+  <data name="OPOpenServer" xml:space="preserve">
+    <value>服务器创建</value>
+  </data>
+  <data name="OPReadTags" xml:space="preserve">
+    <value>读标签</value>
+  </data>
+  <data name="OPStartmoniter" xml:space="preserve">
+    <value>启动监听</value>
+  </data>
+  <data name="OPWorkAnt" xml:space="preserve">
+    <value>工作天线</value>
+  </data>
+  <data name="OPWriteTags" xml:space="preserve">
+    <value>写标签</value>
+  </data>
+  <data name="resultfailed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="resultOK" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="OPInvalidParameters" xml:space="preserve">
+    <value>错误的参数</value>
+  </data>
+  <data name="OPopenmonication" xml:space="preserve">
+    <value>请选打开监听</value>
+  </data>
+  <data name="OPPWDCheck" xml:space="preserve">
+    <value>密码的长度必须为8个字节</value>
+  </data>
+  <data name="baudrate" xml:space="preserve">
+    <value>波特率</value>
+  </data>
+  <data name="check" xml:space="preserve">
+    <value>校验位</value>
+  </data>
+  <data name="databits" xml:space="preserve">
+    <value>数据位</value>
+  </data>
+  <data name="Serialport" xml:space="preserve">
+    <value>串口号</value>
+  </data>
+  <data name="stopbit" xml:space="preserve">
+    <value>停止位</value>
+  </data>
+  <data name="factory" xml:space="preserve">
+    <value>工厂模式</value>
+  </data>
+  <data name="Fliter" xml:space="preserve">
+    <value>过滤</value>
+  </data>
+  <data name="MacAnddev" xml:space="preserve">
+    <value>MAC地址和设备号</value>
+  </data>
+  <data name="visit" xml:space="preserve">
+    <value>访问</value>
+  </data>
+  <data name="phoneConfig" xml:space="preserve">
+    <value>4G通信参数查询和设置</value>
+  </data>
+  <data name="AccessDoor" xml:space="preserve">
+    <value>通道门模式</value>
+  </data>
+  <data name="alm_alertMode" xml:space="preserve">
+    <value>报警方式</value>
+  </data>
+  <data name="alm_check_one" xml:space="preserve">
+    <value>校验位1</value>
+  </data>
+  <data name="alm_check_two" xml:space="preserve">
+    <value>校验位2</value>
+  </data>
+  <data name="AntennaBranch" xml:space="preserve">
+    <value>天线分支器</value>
+  </data>
+  <data name="Auto_time" xml:space="preserve">
+    <value>自动寻标时间</value>
+  </data>
+  <data name="Bit_one" xml:space="preserve">
+    <value>第一位</value>
+  </data>
+  <data name="Bit_two" xml:space="preserve">
+    <value>第二位</value>
+  </data>
+  <data name="Encryption" xml:space="preserve">
+    <value>加密模式</value>
+  </data>
+  <data name="EncryptionAlgorithm" xml:space="preserve">
+    <value>加密算法</value>
+  </data>
+  <data name="GPIOState" xml:space="preserve">
+    <value>GPIO上电状态</value>
+  </data>
+  <data name="pwd" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="Reserve" xml:space="preserve">
+    <value>功能保留</value>
+  </data>
+  <data name="wirelessnet" xml:space="preserve">
+    <value>无线网络</value>
+  </data>
+  <data name="ActiveDeviceInventory" xml:space="preserve">
+    <value>有源标签盘存</value>
+  </data>
+  <data name="activetest" xml:space="preserve">
+    <value>测试专用</value>
+  </data>
+  <data name="avtive" xml:space="preserve">
+    <value>有源读写器参数</value>
+  </data>
+  <data name="beep" xml:space="preserve">
+    <value>蜂鸣器设置</value>
+  </data>
+  <data name="Carrier" xml:space="preserve">
+    <value>载波测试</value>
+  </data>
+  <data name="CommunicationInformation" xml:space="preserve">
+    <value>设备地址和网络参数</value>
+  </data>
+  <data name="CompleteMachine" xml:space="preserve">
+    <value>整机</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>数据显示方式</value>
+  </data>
+  <data name="EquipmenttType" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+  <data name="factoryset" xml:space="preserve">
+    <value>恢复出厂设置</value>
+  </data>
+  <data name="fastID" xml:space="preserve">
+    <value>FastID功能</value>
+  </data>
+  <data name="frequency" xml:space="preserve">
+    <value>区域和频率</value>
+  </data>
+  <data name="GeneralParameters" xml:space="preserve">
+    <value>通用参数</value>
+  </data>
+  <data name="init" xml:space="preserve">
+    <value>参数初始化</value>
+  </data>
+  <data name="mqtt" xml:space="preserve">
+    <value>MQTT基本参数</value>
+  </data>
+  <data name="net" xml:space="preserve">
+    <value>MAC地址和设备号</value>
+  </data>
+  <data name="QTtag" xml:space="preserve">
+    <value>QT标签及操作</value>
+  </data>
+  <data name="ReaderReportCount" xml:space="preserve">
+    <value>上报数量</value>
+  </data>
+  <data name="readwrite" xml:space="preserve">
+    <value>标签基本操作</value>
+  </data>
+  <data name="RefreshInterval" xml:space="preserve">
+    <value>刷新间隔</value>
+  </data>
+  <data name="rfid" xml:space="preserve">
+    <value>超高频读写器参数</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>开始计时</value>
+  </data>
+  <data name="tagfocus" xml:space="preserve">
+    <value>Tagfocus</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>测试</value>
+  </data>
+  <data name="test1" xml:space="preserve">
+    <value>设备出厂参数设置</value>
+  </data>
+  <data name="test2" xml:space="preserve">
+    <value>超高频天线设置</value>
+  </data>
+  <data name="test3" xml:space="preserve">
+    <value>设备基本参数设置</value>
+  </data>
+  <data name="test4" xml:space="preserve">
+    <value>超高频射频参数测试</value>
+  </data>
+  <data name="test5" xml:space="preserve">
+    <value>超高频读写标签测试</value>
+  </data>
+  <data name="test6" xml:space="preserve">
+    <value>2.4G测试</value>
+  </data>
+  <data name="wifi" xml:space="preserve">
+    <value>wifi模块参数</value>
+  </data>
+  <data name="ActiveCarrier" xml:space="preserve">
+    <value>有源读写器载波测试</value>
+  </data>
+  <data name="AlarmTime" xml:space="preserve">
+    <value>报警时间</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="AuthorizationmMode" xml:space="preserve">
+    <value>授权模式</value>
+  </data>
+  <data name="BuzzerSoundFrequency" xml:space="preserve">
+    <value>蜂鸣器发声次数</value>
+  </data>
+  <data name="counts" xml:space="preserve">
+    <value>标签总数</value>
+  </data>
+  <data name="FourChannelReader" xml:space="preserve">
+    <value>四通道读写器</value>
+  </data>
+  <data name="FourTypeAlarm" xml:space="preserve">
+    <value>四类报警时间和次数设置</value>
+  </data>
+  <data name="OneChannelReader" xml:space="preserve">
+    <value>单通道读写器</value>
+  </data>
+  <data name="RFLInk" xml:space="preserve">
+    <value>RF链路设置</value>
+  </data>
+  <data name="SixteenChannelReader" xml:space="preserve">
+    <value>16通道读写器</value>
+  </data>
+  <data name="SixtyfourChannelReader" xml:space="preserve">
+    <value>64通道读写器</value>
+  </data>
+  <data name="StopTime" xml:space="preserve">
+    <value>停止时间</value>
+  </data>
+  <data name="TheLengthOftheBuzze" xml:space="preserve">
+    <value>蜂鸣器发声时长</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="WorkingStateAfterTriggering" xml:space="preserve">
+    <value>触发后工作状态</value>
+  </data>
+  <data name="worktime" xml:space="preserve">
+    <value>工作时间</value>
+  </data>
+  <data name="ChannelGate" xml:space="preserve">
+    <value>通道门—适用于通道门</value>
+  </data>
+  <data name="countsec" xml:space="preserve">
+    <value>张/秒</value>
+  </data>
+  <data name="CumulativeDisplay" xml:space="preserve">
+    <value>累计显示—适用于主从模式</value>
+  </data>
+  <data name="SpecialDisplay" xml:space="preserve">
+    <value>测试按钮专用显示</value>
+  </data>
+  <data name="TimingDisplay" xml:space="preserve">
+    <value>定时显示—适用于主从模式</value>
+  </data>
+  <data name="TriggerDisplay" xml:space="preserve">
+    <value>触发定时显示—适用于触发模式</value>
+  </data>
+  <data name="attenuation" xml:space="preserve">
+    <value>射频衰减</value>
+  </data>
+  <data name="AutoRead" xml:space="preserve">
+    <value>开机自动循环</value>
+  </data>
+  <data name="channel" xml:space="preserve">
+    <value>信道频率</value>
+  </data>
+  <data name="CloseRangeControlOff" xml:space="preserve">
+    <value>关闭近距离控制</value>
+  </data>
+  <data name="CloseRangeControlOn" xml:space="preserve">
+    <value>启用近距离控制</value>
+  </data>
+  <data name="EmissivePower" xml:space="preserve">
+    <value>发射功率</value>
+  </data>
+  <data name="ParameterSetting" xml:space="preserve">
+    <value>参数设置和操作</value>
+  </data>
+  <data name="PowerCutStorage" xml:space="preserve">
+    <value>断电保存</value>
+  </data>
+  <data name="PrivateArea" xml:space="preserve">
+    <value>私有区</value>
+  </data>
+  <data name="PublicArea" xml:space="preserve">
+    <value>公有区</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="hgh" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeepAlive" xml:space="preserve">
+    <value>保活时间</value>
+  </data>
+  <data name="sure" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="InternalTestUse" xml:space="preserve">
+    <value>非工程测试人员勿动</value>
+  </data>
+  <data name="Alarm1" xml:space="preserve">
+    <value>不报警，GPIO输出低电平</value>
+  </data>
+  <data name="Alarm10" xml:space="preserve">
+    <value>四类报警：报警打开,仅在EPC数据不同时报警，输出高电平，可设置报警次数</value>
+  </data>
+  <data name="Alarm2" xml:space="preserve">
+    <value>不报警，GPIO输出高电平</value>
+  </data>
+  <data name="Alarm3" xml:space="preserve">
+    <value>一类报警：报警打开，EPC校验结果相同,输出低电平,报警持续300ms</value>
+  </data>
+  <data name="Alarm4" xml:space="preserve">
+    <value>一类报警：报警打开，EPC校验结果相同,输出高电平,报警持续300ms</value>
+  </data>
+  <data name="Alarm5" xml:space="preserve">
+    <value>二类报警：报警打开，EPC校验结果不相同及无卡时报警,输出低电平,报警持续300ms</value>
+  </data>
+  <data name="Alarm6" xml:space="preserve">
+    <value>二类报警：报警打开，EPC校验结果不相同及无卡时报警,输出高电平,报警持续300ms</value>
+  </data>
+  <data name="Alarm7" xml:space="preserve">
+    <value>三类报警：报警打开，仅在无卡通过时，GPIO输出低电平，报警持续300ms</value>
+  </data>
+  <data name="Alarm8" xml:space="preserve">
+    <value>三类报警：报警打开，仅在无卡通过时，GPIO输出高电平，报警持续300ms</value>
+  </data>
+  <data name="Alarm9" xml:space="preserve">
+    <value>四类报警：报警打开,仅在EPC数据不同时报警，输出低电平，可设置报警次数</value>
+  </data>
+  <data name="MultiFunctionMode" xml:space="preserve">
+    <value>多功能模式</value>
+  </data>
+  <data name="Noant" xml:space="preserve">
+    <value>合并天线</value>
+  </data>
+  <data name="QuickStart" xml:space="preserve">
+    <value>快速开始</value>
+  </data>
+  <data name="StreamlineMode" xml:space="preserve">
+    <value>精简模式</value>
+  </data>
+  <data name="VendingMachineMode" xml:space="preserve">
+    <value>智能贩卖机模式</value>
+  </data>
+  <data name="SetRefreshTime" xml:space="preserve">
+    <value>设置刷新间隔</value>
+  </data>
+  <data name="MainBoard" xml:space="preserve">
+    <value>主板</value>
+  </data>
+  <data name="AlarmCount" xml:space="preserve">
+    <value>报警总数</value>
+  </data>
+  <data name="CommandTest" xml:space="preserve">
+    <value>相关指令测试</value>
+  </data>
+  <data name="Terminal" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="ActiveModule" xml:space="preserve">
+    <value>有源</value>
+  </data>
+  <data name="BasicConfig" xml:space="preserve">
+    <value>基本参数</value>
+  </data>
+  <data name="BeepTest" xml:space="preserve">
+    <value>蜂鸣器发声测试</value>
+  </data>
+  <data name="HeartBeat" xml:space="preserve">
+    <value>心跳</value>
+  </data>
+  <data name="ChannelSpace" xml:space="preserve">
+    <value>信道间隔</value>
+  </data>
+  <data name="RF_Area" xml:space="preserve">
+    <value>频率区域</value>
+  </data>
+  <data name="ActiveDev" xml:space="preserve">
+    <value>有源设备参数</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>对比模式</value>
+  </data>
+  <data name="InvCounter" xml:space="preserve">
+    <value>盘点柜模式</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>恢复出厂设置</value>
+  </data>
+  <data name="Dynamic" xml:space="preserve">
+    <value>动态</value>
+  </data>
+  <data name="Fixed" xml:space="preserve">
+    <value>固定</value>
+  </data>
+  <data name="humidity" xml:space="preserve">
+    <value>湿度</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>正常状态</value>
+  </data>
+  <data name="SensorStart1" xml:space="preserve">
+    <value>温度传感器</value>
+  </data>
+  <data name="SensorStart2" xml:space="preserve">
+    <value>加速度传感器</value>
+  </data>
+  <data name="SensorTagDisp" xml:space="preserve">
+    <value>传感器标签显示</value>
+  </data>
+  <data name="SensorTagRead" xml:space="preserve">
+    <value>传感器标签读取</value>
+  </data>
+  <data name="Special" xml:space="preserve">
+    <value>特殊标签工作状态</value>
+  </data>
+  <data name="temper" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="CarrierOff" xml:space="preserve">
+    <value>退出载波测试</value>
+  </data>
+  <data name="CarrierOn" xml:space="preserve">
+    <value>启动载波测试</value>
+  </data>
+  <data name="TimeDisp" xml:space="preserve">
+    <value>单位时间显示</value>
+  </data>
+  <data name="TotalDisp" xml:space="preserve">
+    <value>累计显示</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>开始计时</value>
+  </data>
+  <data name="StopTimer" xml:space="preserve">
+    <value>停止计时</value>
+  </data>
+  <data name="CounterFilter" xml:space="preserve">
+    <value>盘点过滤</value>
+  </data>
+  <data name="HighLevel" xml:space="preserve">
+    <value>高电平</value>
+  </data>
+  <data name="LowLevel" xml:space="preserve">
+    <value>低电平</value>
+  </data>
+  <data name="TimerFilter" xml:space="preserve">
+    <value>定时过滤</value>
+  </data>
+  <data name="Getepc" xml:space="preserve">
+    <value>获取EPC</value>
+  </data>
+  <data name="Setepc" xml:space="preserve">
+    <value>设置EPC</value>
+  </data>
+  <data name="StorageFilter" xml:space="preserve">
+    <value>存储过滤</value>
+  </data>
+  <data name="BootAutomaticcycle" xml:space="preserve">
+    <value>开机自动循环</value>
+  </data>
+  <data name="CarrierTest" xml:space="preserve">
+    <value>载波测试</value>
+  </data>
+  <data name="ChannerPower" xml:space="preserve">
+    <value>信道频率</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>退出载波测试</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>过滤</value>
+  </data>
+  <data name="GModule" xml:space="preserve">
+    <value>2.4G模块</value>
+  </data>
+  <data name="LaunchPower" xml:space="preserve">
+    <value>发射功率</value>
+  </data>
+  <data name="PoweroutagesSave" xml:space="preserve">
+    <value>断电保存</value>
+  </data>
+  <data name="Reduce" xml:space="preserve">
+    <value>射频衰减</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="SaveExcel" xml:space="preserve">
+    <value>保存列表到Excel</value>
+  </data>
+  <data name="SetAnt" xml:space="preserve">
+    <value>设置天线</value>
+  </data>
+  <data name="SourceDataSev" xml:space="preserve">
+    <value>开始保存原始数据</value>
+  </data>
+  <data name="ClosetheReport" xml:space="preserve">
+    <value>关闭输入使能</value>
+  </data>
+  <data name="GPIOInputMake" xml:space="preserve">
+    <value>上报GPIO输入使能</value>
+  </data>
+  <data name="Hex" xml:space="preserve">
+    <value>十六进制</value>
+  </data>
+  <data name="Incremental" xml:space="preserve">
+    <value>数据增量</value>
+  </data>
+  <data name="Lengthcoding" xml:space="preserve">
+    <value>长编码</value>
+  </data>
+  <data name="NoFilterWrite" xml:space="preserve">
+    <value>无过滤写标签</value>
+  </data>
+  <data name="OpentheReport" xml:space="preserve">
+    <value>开启输入使能</value>
+  </data>
+  <data name="Readermodel" xml:space="preserve">
+    <value>读写器型号</value>
+  </data>
+  <data name="StartContent" xml:space="preserve">
+    <value>出厂参数</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>写</value>
+  </data>
+  <data name="SourceDataSav" xml:space="preserve">
+    <value>开始保存原始数据</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>速      度</value>
+  </data>
+  <data name="Ant1" xml:space="preserve">
+    <value>天线1</value>
+  </data>
+  <data name="Ant2" xml:space="preserve">
+    <value>天线2</value>
+  </data>
+  <data name="Ant3" xml:space="preserve">
+    <value>天线3</value>
+  </data>
+  <data name="Ant4" xml:space="preserve">
+    <value>天线4</value>
+  </data>
+  <data name="Configure_Power_Four" xml:space="preserve">
+    <value>四通道射频功率</value>
+  </data>
+  <data name="Configure_Power_One" xml:space="preserve">
+    <value>单通道射频功率</value>
+  </data>
+  <data name="AntCompatibility" xml:space="preserve">
+    <value>天线匹配度</value>
+  </data>
+  <data name="AntDetection" xml:space="preserve">
+    <value>天线检测</value>
+  </data>
+  <data name="AtFullSpeed" xml:space="preserve">
+    <value>全速读标</value>
+  </data>
+  <data name="BatchTagAction" xml:space="preserve">
+    <value>批量写标读标</value>
+  </data>
+  <data name="CheckBoxTag" xml:space="preserve">
+    <value>检查箱内标签</value>
+  </data>
+  <data name="ClearMark" xml:space="preserve">
+    <value>清除所有标注点</value>
+  </data>
+  <data name="EPCAndTID" xml:space="preserve">
+    <value>同时读取EPC和TID</value>
+  </data>
+  <data name="EPCTotalNumber" xml:space="preserve">
+    <value>EPC总数</value>
+  </data>
+  <data name="Equilibrium" xml:space="preserve">
+    <value>功耗均衡</value>
+  </data>
+  <data name="GPIO0Synchronous" xml:space="preserve">
+    <value>GPIO0同步</value>
+  </data>
+  <data name="ReadTagMode" xml:space="preserve">
+    <value>读标模式</value>
+  </data>
+  <data name="StartReadTemp" xml:space="preserve">
+    <value>读标签温度</value>
+  </data>
+  <data name="StateVoiceOpen" xml:space="preserve">
+    <value>状态音开</value>
+  </data>
+  <data name="StopReadTemp" xml:space="preserve">
+    <value>停止读温度</value>
+  </data>
+  <data name="Toolkit" xml:space="preserve">
+    <value>工具箱模式</value>
+  </data>
+  <data name="heart" xml:space="preserve">
+    <value>心跳</value>
+  </data>
+</root>
