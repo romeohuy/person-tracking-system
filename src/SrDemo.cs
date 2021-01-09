@@ -32,8 +32,10 @@ using SrDemo.Business;
 using System.IO;
 using System.Text;
 using System.Drawing.Text;
+using System.Linq;
 using Newtonsoft.Json;
-
+using TrackPerson.DAL;
+using TrackPerson.DAL.Entities;
 
 
 namespace SrDemo
@@ -57,7 +59,7 @@ namespace SrDemo
 
         //  private volatile List<tag> tags_list = new List<tag>(1000);
         //   private volatile List<tag_mc> md_epc_list = new List<tag_mc>(1000);
-        private volatile List<_epc_t> epcs_list = new List<_epc_t>(1000);
+        //private volatile List<_epc_t> epcs_list = new List<_epc_t>(1000);
         private volatile List<string[]> epcstr_list = new List<string[]>(1000);
         private volatile List<string[]> IDtr_list = new List<string[]>(1000);
         private volatile List<string[]> sourceEpcStrList = new List<string[]>(1000);
@@ -147,12 +149,7 @@ namespace SrDemo
             private set;
         }
 
-
-
-
-
-
-
+        private TrackingDAL _trackingDal = new TrackingDAL();
 
         public SrDemo()
         {
@@ -1351,6 +1348,8 @@ namespace SrDemo
                       //  {
                             epcstr_list.Add(result);
                      //   }
+
+                     InsertMultipleEpc(result.ToList());
                     }                 
                 }
                 else
@@ -1376,7 +1375,8 @@ namespace SrDemo
                        // lock (epcstr_list)
                        // {
                         epcstr_list.Add(result);
-                       // }
+                        // }
+                        InsertMultipleEpc(result.ToList());
                     }
   
                 }
@@ -2093,6 +2093,7 @@ namespace SrDemo
             //直接显示
             if (_IsRfidDatabaseWork)
             {
+                InsertDatabase(id);
                 // db.InsertMultiData(0);
             }
             if (_IsActiveDatabaseWork)
@@ -2849,6 +2850,17 @@ namespace SrDemo
 
             this.listView_md_epc.EndUpdate();
         }
+
+        private void InsertMultipleEpc(List<string> epcString_list)
+        {
+            TrackingDAL dal = new TrackingDAL();
+            dal.Inserts(epcString_list.Select(epc => new Tracking()
+            {
+                TrackingId = epc,
+                CreatedDateTime = DateTimeOffset.UtcNow
+            }).ToList());
+        }
+
         /// <summary>
         /// 循环查询EPC累计显示
         /// </summary>
@@ -3119,6 +3131,13 @@ namespace SrDemo
         {
             // string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
             // sql.insert(currentTable, time, epc, dir, count, dev, rssi, ant_id);
+            TrackingDAL trackingDal = new TrackingDAL();
+            var item = new Tracking()
+            {
+                TrackingId = epc,
+                CreatedDateTime = DateTimeOffset.Now
+            };
+            trackingDal.Insert(item);
         }
 
 
