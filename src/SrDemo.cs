@@ -71,6 +71,8 @@ namespace SrDemo
         private volatile List<string[]> QJCS = new List<string[]>(1000);
 
         List<AsyncSocketState> clients;           //客户端信息
+
+        List<ListViewItem> listView_md_addrDatabase = new List<ListViewItem>();
         // 标签显示项
         private const int listView_label_Num = 0;
         private const int listView_label_AntID = 1;
@@ -150,7 +152,7 @@ namespace SrDemo
         }
 
         private TrackingDAL _trackingDal = new TrackingDAL();
-
+        private TrackingClientDAL _trackingClientDal = new TrackingClientDAL();
         public SrDemo()
         {
             InitializeComponent();
@@ -166,6 +168,7 @@ namespace SrDemo
             LoadListViewItems(this.CurrentCacheItemsSource);
 
             LoadListViewItems_ID(this.CurrentCacheItemsSource_ID);
+
 
             string HostName = Dns.GetHostName(); //得到主机名
             IPHostEntry IpEntry = Dns.GetHostEntry(HostName);
@@ -297,6 +300,28 @@ namespace SrDemo
                 Maintable.TabPages[3].Parent = null;//隐藏天线匹配度
         }
 
+        private async void LoadlistView_md_addr()
+        {
+            var trackingClients = new List<TrackingClient>();
+            if (listView_md_addrDatabase.Any() == false)
+            {
+                trackingClients = await _trackingClientDal.GetAllClients();
+            }
+            var index = listView_md_addr.Items.Count + 1;
+            foreach (var trackingClient in trackingClients)
+            {
+                var listViewItem = new ListViewItem(index.ToString());
+                //listViewItem.Text = trackingClient.Id.ToString();
+                listViewItem.SubItems.Add(trackingClient.ClientNo);
+                listViewItem.SubItems.Add(trackingClient.ClientIP);
+                listViewItem.SubItems.Add(trackingClient.Port.ToString());
+                listViewItem.SubItems.Add(trackingClient.DeviceID);
+                listViewItem.SubItems.Add(trackingClient.Status);
+                listView_md_addrDatabase.Add(listViewItem);
+                index++;
+            }
+            listView_md_addr.Items.AddRange(listView_md_addrDatabase.ToArray());
+        }
 
         //设置listview属性和虚拟模式事件   [无源]
         private void LoadListViewItems(List<ListViewItem> items)
@@ -3931,6 +3956,10 @@ namespace SrDemo
                     this.listView_md_addr.Items[this.listView_md_addr.Items.Count - 1].EnsureVisible();
                 }
             } //=========foreach结束
+
+
+            LoadlistView_md_addr();
+
         }
 
         private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
@@ -5844,8 +5873,9 @@ namespace SrDemo
 
         private void SrDemo_Load(object sender, EventArgs e)
         {
-            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-            //UpDataMainFormUILanguage();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+            button12_Click_1(sender, e);
+            UpDataMainFormUILanguage();
         }
 
         private void 文件管理ToolStripMenuItem_Click(object sender, EventArgs e)

@@ -18,7 +18,6 @@ namespace TrackPerson.DAL
         {
             using (var connection = new MySqlConnection(connectString))
             {
-               await connection.OpenAsync();
                await connection.InsertAsync(tracking);
             }
         }
@@ -26,7 +25,6 @@ namespace TrackPerson.DAL
         {
             using (var connection = new MySqlConnection(connectString))
             {
-               await connection.OpenAsync();
                await connection.InsertAsync(trackings);
             }
         }
@@ -35,7 +33,6 @@ namespace TrackPerson.DAL
         {
             using (var connection = new MySqlConnection(connectString))
             {
-               await connection.OpenAsync();
                await connection.UpdateAsync(tracking);
             }
         }
@@ -44,7 +41,6 @@ namespace TrackPerson.DAL
         {
             using (var connection = new MySqlConnection(connectString))
             {
-               await connection.OpenAsync();
                await connection.UpdateAsync(trackings);
             }
         }
@@ -53,7 +49,6 @@ namespace TrackPerson.DAL
         {
             using (var connection = new MySqlConnection(connectString))
             {
-               await connection.OpenAsync();
                await connection.DeleteAsync(tracking);
             }
         }
