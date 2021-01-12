@@ -72,7 +72,7 @@ namespace SrDemo
 
         List<AsyncSocketState> clients;           //客户端信息
 
-        List<ListViewItem> listView_md_addrDatabase = new List<ListViewItem>();
+        //List<ListViewItem> listView_md_addrDatabase = new List<ListViewItem>();
         // 标签显示项
         private const int listView_label_Num = 0;
         private const int listView_label_AntID = 1;
@@ -153,6 +153,7 @@ namespace SrDemo
 
         private TrackingDAL _trackingDal = new TrackingDAL();
         private TrackingClientDAL _trackingClientDal = new TrackingClientDAL();
+        private List<TrackingClient> _clientConnecteds = new List<TrackingClient>();
         public SrDemo()
         {
             InitializeComponent();
@@ -298,29 +299,62 @@ namespace SrDemo
                 label2.Visible = true;
 #endif
                 Maintable.TabPages[3].Parent = null;//隐藏天线匹配度
+
+
+                //LoadlistView_md_addr();
         }
 
         private async void LoadlistView_md_addr()
         {
             var trackingClients = new List<TrackingClient>();
-            if (listView_md_addrDatabase.Any() == false)
+            if (_clientConnecteds.Any() == false)
             {
                 trackingClients = await _trackingClientDal.GetAllClients();
             }
-            var index = listView_md_addr.Items.Count + 1;
+
             foreach (var trackingClient in trackingClients)
             {
-                var listViewItem = new ListViewItem(index.ToString());
-                //listViewItem.Text = trackingClient.Id.ToString();
-                listViewItem.SubItems.Add(trackingClient.ClientNo);
-                listViewItem.SubItems.Add(trackingClient.ClientIP);
-                listViewItem.SubItems.Add(trackingClient.Port.ToString());
-                listViewItem.SubItems.Add(trackingClient.DeviceID);
-                listViewItem.SubItems.Add(trackingClient.Status);
-                listView_md_addrDatabase.Add(listViewItem);
-                index++;
+                try
+                {
+                    IPAddress ipaddress = IPAddress.Parse(trackingClient.ClientIP);
+                    if (ReaderControllor.ServerStart(ipaddress, trackingClient.Port))
+                    {
+                        connect_b.Text = stop;
+                        serverisstart = true;
+                        keepalive.Enabled = true;               //模块循环读取EPC时发送查询数据会使模块停止工作
+                        if ((serialisstart || serverisstart) && ((_IsActiveDatabaseWork) || (_IsRfidDatabaseWork) || (_IsCommandDatabaseWork)))
+                        {
+                            timer_md_query_Tick.Enabled = true;
+                        }
+                        TimerShowID.Enabled = true;
+                        show_EPC_t.Enabled = true;
+
+                        UpdateLog(creatserver + success);
+                        if (isLogOpen)
+                        {
+                            EventLog.WriteEvent(creatserver + success, null);
+                        }
+                    }
+
+                    _clientConnecteds.Add(trackingClient);
+                    //var listViewItem = new ListViewItem(index.ToString());
+                    ////listViewItem.Text = trackingClient.Id.ToString();
+                    //listViewItem.SubItems.Add(trackingClient.ClientNo);
+                    //listViewItem.SubItems.Add(trackingClient.ClientIP);
+                    //listViewItem.SubItems.Add(trackingClient.Port.ToString());
+                    //listViewItem.SubItems.Add(trackingClient.DeviceID);
+                    //listViewItem.SubItems.Add(trackingClient.Status);
+                    //listView_md_addrDatabase.Add(listViewItem);
+                    //index++;
+                }
+                catch (Exception ex)
+                {
+                    UpdateLog(Invalid);
+                    if (isLogOpen)
+                        ErrorLog.WriteError(Invalid);
+                }
+                Thread.Sleep(2000);
             }
-            listView_md_addr.Items.AddRange(listView_md_addrDatabase.ToArray());
         }
 
         //设置listview属性和虚拟模式事件   [无源]
@@ -1374,7 +1408,6 @@ namespace SrDemo
                             epcstr_list.Add(result);
                      //   }
 
-                     InsertMultipleEpc(result.ToList());
                     }                 
                 }
                 else
@@ -1401,7 +1434,6 @@ namespace SrDemo
                        // {
                         epcstr_list.Add(result);
                         // }
-                        InsertMultipleEpc(result.ToList());
                     }
   
                 }
@@ -2812,6 +2844,7 @@ namespace SrDemo
                             item.SubItems.Add(epcstr_list[index][6]);
                             item.SubItems.Add(epcstr_list[index][7]);
                             item.SubItems.Add(epcstr_list[index][11]);
+
                             if (radioButtonModuleTest.Checked == true) item.SubItems.Add(epcstr_list[index][0]);
                             else
                             {
@@ -2838,6 +2871,24 @@ namespace SrDemo
 
                             CurrentCacheItemsSource.Add(item);
 
+                            //Insert To DB 
+                            var tracking = new Tracking()
+                            {
+                                Num = (this.listView_md_epc.Items.Count + 1).ToString(),
+                                AntID = epcstr_list[index][4],
+                                EPC = epcstr_list[index][5],
+                                PC = epcstr_list[index][6],
+                                RSSI = epcstr_list[index][7],
+                                Count = epcstr_list[index][11],
+                                DevID = (radioButtonModuleTest.Checked == true) ? epcstr_list[index][0] : ListDeviceIdstr,
+                                CreatedDateTime = DateTime.Now,
+                                Dir = epcstr_list[index][9],
+                                IsSame = epcstr_list[index][14],
+                                TID = epcstr_list[index][13]
+                            };
+
+                            _trackingDal.Insert(tracking);
+                
                             listView_md_epc.VirtualListSize = CurrentCacheItemsSource.Count;
                             listView_md_epc.Invalidate();
 
@@ -2873,16 +2924,6 @@ namespace SrDemo
             }
 
             this.listView_md_epc.EndUpdate();
-        }
-
-        private void InsertMultipleEpc(List<string> epcString_list)
-        {
-            TrackingDAL dal = new TrackingDAL();
-            dal.Inserts(epcString_list.Select(epc => new Tracking()
-            {
-                TrackingId = epc,
-                CreatedDateTime = DateTime.Now
-            }).ToList());
         }
 
         /// <summary>
@@ -3155,13 +3196,6 @@ namespace SrDemo
         {
             // string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
             // sql.insert(currentTable, time, epc, dir, count, dev, rssi, ant_id);
-            TrackingDAL trackingDal = new TrackingDAL();
-            var item = new Tracking()
-            {
-                TrackingId = epc,
-                CreatedDateTime = DateTime.Now
-            };
-            trackingDal.Insert(item);
         }
 
 
@@ -3631,6 +3665,7 @@ namespace SrDemo
             //foreach (AsyncSocketState client in clients)
             for (int i = 0; i < clients.Count;i++)
             {
+                
                 AsyncSocketState client = clients[i];
                 ListViewItem item = new ListViewItem((this.listView_md_addr.Items.Count + 1).ToString());
                 if (client.types == connect.net)
@@ -3790,8 +3825,20 @@ namespace SrDemo
                         }
                     }
 #endif
-                    this.listView_md_addr.Items.Add(item);
-                    this.listView_md_addr.Items[this.listView_md_addr.Items.Count - 1].EnsureVisible();
+                    if (_clientConnecteds.Any(_=>_.ClientIP == client.ip_addr && _.Port == int.Parse(client.port)) == false) 
+                    {
+                        var trackingClient = new TrackingClient();
+                        trackingClient.ClientIP = client.ip_addr;
+                        trackingClient.Port = int.Parse(client.port);
+                        trackingClient.DeviceID = devid;
+                        trackingClient.Status = client.state;
+
+                        _trackingClientDal.Insert(trackingClient);
+
+                        _clientConnecteds.Add(trackingClient);
+                    }
+                    //this.listView_md_addr.Items.Add(item);
+                    //this.listView_md_addr.Items[this.listView_md_addr.Items.Count - 1].EnsureVisible();
                 }
                 else if (client.types == connect.com)
                 {
@@ -3957,8 +4004,24 @@ namespace SrDemo
                 }
             } //=========foreach结束
 
+            if (clients.Any())
+            {
+                var index = 1;
+                foreach (var trackingClient in _clientConnecteds)
+                {
+                    var listViewItem = new ListViewItem(index.ToString());
+                    listViewItem.Text = index.ToString();
+                    listViewItem.SubItems.Add(trackingClient.ClientNo);
+                    listViewItem.SubItems.Add(trackingClient.ClientIP);
+                    listViewItem.SubItems.Add(trackingClient.Port.ToString());
+                    listViewItem.SubItems.Add(trackingClient.DeviceID);
+                    listViewItem.SubItems.Add(trackingClient.Status);
+                    this.listView_md_addr.Items.Add(listViewItem);
+                    this.listView_md_addr.Items[this.listView_md_addr.Items.Count - 1].EnsureVisible();
 
-            LoadlistView_md_addr();
+                    index++;
+                }
+            }
 
         }
 
@@ -4183,7 +4246,7 @@ namespace SrDemo
 
         }
 
-        public static string languageType = "CN";
+        public static string languageType = "EN";
         private void button12_Click_1(object sender, EventArgs e)
         {
             //if (language_cb.SelectedIndex == 0)       //
