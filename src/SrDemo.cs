@@ -300,7 +300,7 @@ namespace SrDemo
 #endif
                 Maintable.TabPages[3].Parent = null;//隐藏天线匹配度
 
-
+                connect_b_Click(null, null);
                 //LoadlistView_md_addr();
         }
 
@@ -2871,23 +2871,31 @@ namespace SrDemo
 
                             CurrentCacheItemsSource.Add(item);
 
-                            //Insert To DB 
-                            var tracking = new Tracking()
+                            try
                             {
-                                Num = (this.listView_md_epc.Items.Count + 1).ToString(),
-                                AntID = epcstr_list[index][4],
-                                EPC = epcstr_list[index][5],
-                                PC = epcstr_list[index][6],
-                                RSSI = epcstr_list[index][7],
-                                Count = epcstr_list[index][11],
-                                DevID = (radioButtonModuleTest.Checked == true) ? epcstr_list[index][0] : ListDeviceIdstr,
-                                CreatedDateTime = DateTime.Now,
-                                Dir = epcstr_list[index][9],
-                                IsSame = epcstr_list[index][14],
-                                TID = epcstr_list[index][13]
-                            };
+                                //Insert To DB 
+                                var tracking = new Tracking()
+                                {
+                                    Num = (this.listView_md_epc.Items.Count + 1).ToString(),
+                                    AntID = epcstr_list[index][4],
+                                    EPC = epcstr_list[index][5],
+                                    PC = epcstr_list[index][6],
+                                    RSSI = epcstr_list[index][7],
+                                    Count = epcstr_list[index][11],
+                                    DevID = (radioButtonModuleTest.Checked == true) ? epcstr_list[index][0] : ListDeviceIdstr,
+                                    CreatedDateTime = DateTime.Now,
+                                    Dir = epcstr_list[index][9],
+                                    IsSame = epcstr_list[index][14],
+                                    TID = epcstr_list[index][13]
+                                };
 
-                            _trackingDal.Insert(tracking);
+                                _trackingDal.Insert(tracking);
+                            }
+                            catch (Exception exception)
+                            {
+                                Console.WriteLine(exception);
+                                throw;
+                            }
                 
                             listView_md_epc.VirtualListSize = CurrentCacheItemsSource.Count;
                             listView_md_epc.Invalidate();
@@ -3223,6 +3231,8 @@ namespace SrDemo
             {
                 EventLog.WriteEvent("清除数据成功", null);
             }
+
+            _clientConnecteds.Clear();
         }
 
         private delegate void mcListviewDelegate(int index, string text);
@@ -4004,14 +4014,12 @@ namespace SrDemo
                 }
             } //=========foreach结束
 
-            if (clients.Any())
+            if (_clientConnecteds.Any())
             {
                 var index = 1;
                 foreach (var trackingClient in _clientConnecteds)
                 {
                     var listViewItem = new ListViewItem(index.ToString());
-                    listViewItem.Text = index.ToString();
-                    listViewItem.SubItems.Add(trackingClient.ClientNo);
                     listViewItem.SubItems.Add(trackingClient.ClientIP);
                     listViewItem.SubItems.Add(trackingClient.Port.ToString());
                     listViewItem.SubItems.Add(trackingClient.DeviceID);
@@ -4023,6 +4031,10 @@ namespace SrDemo
                 }
             }
 
+            if (CurrentClient != null && IsStart == false)
+            {
+                button_md_start_Click(sender, e);
+            }
         }
 
         private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
