@@ -81,6 +81,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.tabDemo = new System.Windows.Forms.TabControl();
             this.pbSr = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxStudents = new System.Windows.Forms.ComboBox();
             this.gbCOM.SuspendLayout();
             this.tabOp.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -248,6 +250,8 @@
             // groupBox7
             // 
             this.groupBox7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox7.Controls.Add(this.comboBoxStudents);
+            this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Controls.Add(this.btnUpdate);
             this.groupBox7.Controls.Add(this.txbid);
             this.groupBox7.Controls.Add(this.grvShow);
@@ -277,7 +281,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(306, 262);
+            this.btnUpdate.Location = new System.Drawing.Point(346, 262);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 46);
             this.btnUpdate.TabIndex = 41;
@@ -303,7 +307,7 @@
             // 
             // btnshowDB
             // 
-            this.btnshowDB.Location = new System.Drawing.Point(351, 186);
+            this.btnshowDB.Location = new System.Drawing.Point(346, 203);
             this.btnshowDB.Name = "btnshowDB";
             this.btnshowDB.Size = new System.Drawing.Size(75, 53);
             this.btnshowDB.TabIndex = 38;
@@ -313,7 +317,7 @@
             // 
             // btnSaveDB
             // 
-            this.btnSaveDB.Location = new System.Drawing.Point(259, 185);
+            this.btnSaveDB.Location = new System.Drawing.Point(254, 202);
             this.btnSaveDB.Name = "btnSaveDB";
             this.btnSaveDB.Size = new System.Drawing.Size(75, 53);
             this.btnSaveDB.TabIndex = 37;
@@ -323,7 +327,7 @@
             // 
             // btnclear
             // 
-            this.btnclear.Location = new System.Drawing.Point(161, 186);
+            this.btnclear.Location = new System.Drawing.Point(156, 203);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(75, 52);
             this.btnclear.TabIndex = 36;
@@ -454,7 +458,7 @@
             // button_data_read
             // 
             this.button_data_read.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_data_read.Location = new System.Drawing.Point(24, 186);
+            this.button_data_read.Location = new System.Drawing.Point(19, 203);
             this.button_data_read.Margin = new System.Windows.Forms.Padding(4);
             this.button_data_read.Name = "button_data_read";
             this.button_data_read.Size = new System.Drawing.Size(110, 52);
@@ -684,6 +688,25 @@
             this.pbSr.TabIndex = 1;
             this.pbSr.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(18, 170);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 15);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Student:";
+            // 
+            // comboBoxStudents
+            // 
+            this.comboBoxStudents.FormattingEnabled = true;
+            this.comboBoxStudents.Location = new System.Drawing.Point(104, 167);
+            this.comboBoxStudents.Name = "comboBoxStudents";
+            this.comboBoxStudents.Size = new System.Drawing.Size(316, 24);
+            this.comboBoxStudents.TabIndex = 43;
+            // 
             // SrDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -776,6 +799,8 @@
         private System.Windows.Forms.DataGridView grvShow;
         private System.Windows.Forms.TextBox txbid;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ComboBox comboBoxStudents;
+        private System.Windows.Forms.Label label3;
     }
 }
 

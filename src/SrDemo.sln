@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackPerson.DAL", "..\Track
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrDemo.Client", "..\source client\Hien-4-vung-nho\SrDemo.Client.csproj", "{610565B0-4091-46A0-8D9E-23E8E48BA86E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackPerson.Service", "..\TrackPerson.Service\TrackPerson.Service.csproj", "{4F1C1A40-419C-459C-93AF-A3D3801E1481}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|x86.ActiveCfg = Release|Any CPU
 		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|x86.Build.0 = Release|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Debug|x86.Build.0 = Debug|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Release|x86.ActiveCfg = Release|Any CPU
+		{4F1C1A40-419C-459C-93AF-A3D3801E1481}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
