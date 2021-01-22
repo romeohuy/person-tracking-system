@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrDemo", "SrDemo.csproj", "{E055020B-20E6-49E7-90CD-6F088479BF98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrDemo.Server", "SrDemo.Server.csproj", "{E055020B-20E6-49E7-90CD-6F088479BF98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackPerson.DAL", "..\TrackPerson.DAL\TrackPerson.DAL.csproj", "{0FC945E9-1573-46EC-9F2F-A1343DC1943C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrDemo.Client", "..\source client\Hien-4-vung-nho\SrDemo.Client.csproj", "{610565B0-4091-46A0-8D9E-23E8E48BA86E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,18 @@ Global
 		{0FC945E9-1573-46EC-9F2F-A1343DC1943C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0FC945E9-1573-46EC-9F2F-A1343DC1943C}.Release|x86.ActiveCfg = Release|Any CPU
 		{0FC945E9-1573-46EC-9F2F-A1343DC1943C}.Release|x86.Build.0 = Release|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Debug|x86.Build.0 = Debug|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|x86.ActiveCfg = Release|Any CPU
+		{610565B0-4091-46A0-8D9E-23E8E48BA86E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
