@@ -5,6 +5,8 @@ using System.IO.Ports;              //SerialPort
 using System.Net;
 using System.Threading;             //thread
 using System.Windows.Forms;
+using TrackPerson.DAL;
+using TrackPerson.DAL.Entities;
 using TrackPerson.Service;
 
 namespace SrDemo
@@ -76,8 +78,8 @@ namespace SrDemo
 
             grvShow.DataSource = sourcebinding;
 
-            string sql = "select id, EPC, TID, USER_ as [USER], RFU from UHF_Desktop";
-            grvShow.DataSource = Provider.Instance.ExecuteQuery(sql);
+            var trackingPersonDal = new TrackingPersonPersonDAL();
+            grvShow.DataSource = trackingPersonDal.GetAll();
 
             binding();
 
@@ -1550,15 +1552,24 @@ namespace SrDemo
 
         private void btnshowDB_Click(object sender, EventArgs e)
         {
-            string sql = "select id, EPC, TID, USER_ as [USER], RFU from UHF_Desktop";
-            grvShow.DataSource = Provider.Instance.ExecuteQuery(sql);
+            //string sql = "select id, EPC, TID, USER_ as [USER], RFU from UHF_Desktop";
+            var trackingPersonDal = new TrackingPersonPersonDAL();
+            grvShow.DataSource = trackingPersonDal.GetAll();
         }
 
         private void btnSaveDB_Click(object sender, EventArgs e)
         {
-            Provider.Instance.ExecuteNonQuery("exec insertdata_desktop @EPC , @TID , @USER_ , @RFU", new object[] { textBox_data_EPC.Text.Trim(), textBox_data_TID.Text.Trim(), textBox_data_USER.Text.Trim(), textBox_data_RFU.Text.Trim() });
-            string sql = "select id, EPC, TID, USER_ as [USER], RFU from UHF_Desktop";
-            grvShow.DataSource = Provider.Instance.ExecuteQuery(sql);
+            var trackingPersonDal = new TrackingPersonPersonDAL();
+            trackingPersonDal.Insert(new TrackingPerson()
+            {
+                EPC = textBox_data_EPC.Text.Trim(),
+                TID = textBox_data_TID.Text.Trim(), 
+                USER = textBox_data_USER.Text.Trim(), 
+                RFU = textBox_data_RFU.Text.Trim()
+            });
+
+            
+            grvShow.DataSource = trackingPersonDal.GetAll();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
