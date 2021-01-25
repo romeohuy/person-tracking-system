@@ -14,11 +14,11 @@ namespace TrackPerson.DAL
     {
         string connectString = ConfigurationManager.AppSettings["MySqlConnectString"];
 
-        public async Task<List<TrackingPerson>> GetAll()
+        public List<TrackingPerson> GetAll()
         {
             using (var connection = new MySqlConnection(connectString))
             {
-               var trackingPersons = await connection.GetAllAsync<TrackingPerson>();
+               var trackingPersons =  connection.GetAll<TrackingPerson>();
                return trackingPersons.ToList();
             }
         }
