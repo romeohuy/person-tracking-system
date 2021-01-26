@@ -1,12 +1,11 @@
-﻿using System;
+﻿using SrDemo.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO.Ports;              //SerialPort
 using System.Net;
 using System.Threading;             //thread
 using System.Windows.Forms;
-using TrackPerson.DAL;
-using TrackPerson.DAL.Entities;
 using TrackPerson.Service;
 
 namespace SrDemo
@@ -60,7 +59,7 @@ namespace SrDemo
         }
 
         private static TrackingPersonApiConsumer _trackingPersonApiConsumer;
-        private static ListStudentsResponse _listStudentsResponse;
+        private static List<StudentInfoResponse> _listStudentsResponse;
         public SrDemo()
         {
             InitializeComponent();
@@ -78,8 +77,8 @@ namespace SrDemo
 
             grvShow.DataSource = sourcebinding;
 
-            var trackingPersonDal = new TrackingPersonPersonDAL();
-            grvShow.DataSource = trackingPersonDal.GetAll();
+            //var trackingPersonDal = new TrackingPersonPersonDAL();
+            grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
 
             binding();
 
@@ -1242,14 +1241,14 @@ namespace SrDemo
 
 
                 //Post data to API
-                var result = _trackingPersonApiConsumer.PutRegisterStudentCard(comboBoxStudents.SelectedValue.ToString(), textBox_data_EPC.Text);
-                if (result.result)
-                {
-                    MessageBox.Show("Đăng ký thành công!");
-                    //Read again api get students
-                    _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
-                    comboBoxStudents.DataSource = _listStudentsResponse.data;
-                }
+                //var result = _trackingPersonApiConsumer.PutRegisterStudentCard(comboBoxStudents.SelectedValue.ToString(), textBox_data_EPC.Text);
+                //if (result.result)
+                //{
+                //    MessageBox.Show("Đăng ký thành công!");
+                //    //Read again api get students
+                //    _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
+                //    comboBoxStudents.DataSource = _listStudentsResponse.data;
+                //}
             }
             catch (Exception ex)
             {
@@ -1509,9 +1508,7 @@ namespace SrDemo
 
         private void SrDemo_Load(object sender, EventArgs e)
         {
-            comboBoxStudents.DataSource = _listStudentsResponse.data;
-            comboBoxStudents.DisplayMember = "hs_name";
-            comboBoxStudents.ValueMember = "hs_id";
+
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -1553,23 +1550,31 @@ namespace SrDemo
         private void btnshowDB_Click(object sender, EventArgs e)
         {
             //string sql = "select id, EPC, TID, USER_ as [USER], RFU from UHF_Desktop";
-            var trackingPersonDal = new TrackingPersonPersonDAL();
-            grvShow.DataSource = trackingPersonDal.GetAll();
+            //var trackingPersonDal = new TrackingPersonPersonDAL();
+            var trackingApi = new TrackingPersonApiConsumer();
+            _listStudentsResponse = trackingApi.GetListStudents();
+            grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
         }
 
         private void btnSaveDB_Click(object sender, EventArgs e)
         {
-            var trackingPersonDal = new TrackingPersonPersonDAL();
-            trackingPersonDal.Insert(new TrackingPerson()
+            //var trackingPersonDal = new TrackingPersonPersonDAL();
+            //trackingPersonDal.Insert(new TrackingPerson()
+            //{
+            //    EPC = textBox_data_EPC.Text.Trim(),
+            //    TID = textBox_data_TID.Text.Trim(),
+            //    USER = textBox_data_USER.Text.Trim(),
+            //    RFU = textBox_data_RFU.Text.Trim()
+            //});
+            var trackingApi = new TrackingPersonApiConsumer();
+            int.TryParse(txbid.Text, out int hs_id);
+            var response = trackingApi.PutRegisterStudentCard(hs_id, textBox_data_EPC.Text.Trim());
+            if (response.result)
             {
-                EPC = textBox_data_EPC.Text.Trim(),
-                TID = textBox_data_TID.Text.Trim(), 
-                USER = textBox_data_USER.Text.Trim(), 
-                RFU = textBox_data_RFU.Text.Trim()
-            });
-
-            
-            grvShow.DataSource = trackingPersonDal.GetAll();
+                MessageBox.Show("Lưu học sinh thành công!");
+            }
+            _listStudentsResponse = trackingApi.GetListStudents();
+            grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

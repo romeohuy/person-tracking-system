@@ -2,6 +2,7 @@
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 
@@ -9,6 +10,7 @@ namespace TrackPerson.Service
 {
     public class TrackingPersonApiConsumer
     {
+        private static readonly log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(TrackingPersonApiConsumer));
         private string _rootApi;
         private string _userName;
         private string _password;
@@ -32,29 +34,50 @@ namespace TrackPerson.Service
             }
             else
             {
+                _logger.Error("Lỗi kết nối api:" + result.Content);
                 throw new Exception("Lỗi kết nối api:" + result.Content);
             }
         }
 
-        public ListStudentsResponse GetListStudents()
+        public List<StudentInfoResponse> GetListStudents()
         {
+            var listStudents = new List<StudentInfoResponse>();
             var token = GetToken();
             if (!string.IsNullOrEmpty(token))
             {
                 var client = new RestClient();
-
-                var request = new RestRequest(new Uri(Path.Combine(_rootApi, "customer-child/")), Method.GET);
-                request.AddHeader("Authorization", $"Bearer {token}");
-                var result = client.Execute<ListStudentsResponse>(request);
-                if (result.IsSuccessful)
+                var page = 1;
+                while (true)
                 {
-                    return result.Data;
-                }
-            }
+                    var request = new RestRequest(new Uri(Path.Combine(_rootApi, $"customer-child?page={page}")), Method.GET);
+                    request.AddHeader("Authorization", $"Bearer {token}");
+                    try
+                    {
+                        var result = client.Execute<ListStudentsResponse>(request);
+                        if (result.IsSuccessful)
+                        {
+                            _logger.Info($"Get students page {page}: {JsonConvert.SerializeObject(request)}");
+                            listStudents.AddRange(result.Data.data);
+                        }
+                        if (string.IsNullOrEmpty(result.Data.meta.next))
+                        {
+                            break;
+                        }
 
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
+                    page++;
+                }
+                _logger.Info($"Get students api: Count {listStudents.Count}");
+                return listStudents;
+            }
+            _logger.Error("Token trống");
             throw new Exception("Token trống");
         }
-        public RegisterStudentResponse PutRegisterStudentCard(string hs_id, string card_code)
+        public RegisterStudentResponse PutRegisterStudentCard(int hs_id, string card_code)
         {
             var token = GetToken();
             if (!string.IsNullOrEmpty(token))
@@ -72,10 +95,11 @@ namespace TrackPerson.Service
                 var result = client.Execute<RegisterStudentResponse>(request);
                 if (result.IsSuccessful)
                 {
+                    _logger.Info($"Regist students: {JsonConvert.SerializeObject(request)}");
                     return result.Data;
                 }
             }
-
+            _logger.Error("Token trống");
             throw new Exception("Token trống");
         }
     }

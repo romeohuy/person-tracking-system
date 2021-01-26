@@ -8,9 +8,9 @@ namespace TrackPerson.Service
         public string hs_name { get; set; }
         public string hs_code { get; set; }
         public string hs_class { get; set; }
-        public object card_id { get; set; }
-        public object card_code { get; set; }
-        public object card_name { get; set; }
+        public string card_id { get; set; }
+        public string card_code { get; set; }
+        public string card_name { get; set; }
     }
 
     public class MetaResponse
@@ -21,13 +21,13 @@ namespace TrackPerson.Service
         public int pageSize { get; set; }
         public int from { get; set; }
         public int to { get; set; }
-        public object next { get; set; }
-        public object prev { get; set; }
+        public string next { get; set; }
+        public string prev { get; set; }
     }
 
     public class ListStudentsResponse
     {
-        public MetaResponse MetaResponse { get; set; }
+        public MetaResponse meta { get; set; }
         public List<StudentInfoResponse> data { get; set; }
     }
 }

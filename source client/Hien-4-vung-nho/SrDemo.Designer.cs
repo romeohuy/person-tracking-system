@@ -81,8 +81,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.tabDemo = new System.Windows.Forms.TabControl();
             this.pbSr = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxStudents = new System.Windows.Forms.ComboBox();
             this.gbCOM.SuspendLayout();
             this.tabOp.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -122,7 +120,7 @@
             this.cbBaute.Location = new System.Drawing.Point(76, 59);
             this.cbBaute.Margin = new System.Windows.Forms.Padding(4);
             this.cbBaute.Name = "cbBaute";
-            this.cbBaute.Size = new System.Drawing.Size(81, 24);
+            this.cbBaute.Size = new System.Drawing.Size(81, 27);
             this.cbBaute.TabIndex = 17;
             // 
             // label2
@@ -131,7 +129,7 @@
             this.label2.Location = new System.Drawing.Point(3, 63);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.Size = new System.Drawing.Size(74, 19);
             this.label2.TabIndex = 16;
             this.label2.Text = "Baudrate:";
             // 
@@ -142,7 +140,7 @@
             this.cbCOM.Location = new System.Drawing.Point(76, 25);
             this.cbCOM.Margin = new System.Windows.Forms.Padding(4);
             this.cbCOM.Name = "cbCOM";
-            this.cbCOM.Size = new System.Drawing.Size(81, 24);
+            this.cbCOM.Size = new System.Drawing.Size(81, 27);
             this.cbCOM.TabIndex = 15;
             // 
             // label1
@@ -151,7 +149,7 @@
             this.label1.Location = new System.Drawing.Point(11, 30);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.Size = new System.Drawing.Size(54, 19);
             this.label1.TabIndex = 14;
             this.label1.Text = "PORT:";
             // 
@@ -174,7 +172,7 @@
             this.label_firmware_version.Location = new System.Drawing.Point(15, 310);
             this.label_firmware_version.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_firmware_version.Name = "label_firmware_version";
-            this.label_firmware_version.Size = new System.Drawing.Size(68, 17);
+            this.label_firmware_version.Size = new System.Drawing.Size(84, 21);
             this.label_firmware_version.TabIndex = 1;
             this.label_firmware_version.Text = "Firmware:";
             // 
@@ -185,7 +183,7 @@
             this.label_hardware_version.Location = new System.Drawing.Point(15, 279);
             this.label_hardware_version.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_hardware_version.Name = "label_hardware_version";
-            this.label_hardware_version.Size = new System.Drawing.Size(71, 17);
+            this.label_hardware_version.Size = new System.Drawing.Size(86, 21);
             this.label_hardware_version.TabIndex = 0;
             this.label_hardware_version.Text = "Hardware:";
             // 
@@ -239,19 +237,17 @@
             this.tabOp.BackColor = System.Drawing.Color.White;
             this.tabOp.Controls.Add(this.groupBox7);
             this.tabOp.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabOp.Location = new System.Drawing.Point(4, 24);
+            this.tabOp.Location = new System.Drawing.Point(4, 26);
             this.tabOp.Margin = new System.Windows.Forms.Padding(4);
             this.tabOp.Name = "tabOp";
             this.tabOp.Padding = new System.Windows.Forms.Padding(4);
-            this.tabOp.Size = new System.Drawing.Size(1057, 329);
+            this.tabOp.Size = new System.Drawing.Size(1057, 327);
             this.tabOp.TabIndex = 3;
             this.tabOp.Text = "Advanced operation";
             // 
             // groupBox7
             // 
             this.groupBox7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox7.Controls.Add(this.comboBoxStudents);
-            this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Controls.Add(this.btnUpdate);
             this.groupBox7.Controls.Add(this.txbid);
             this.groupBox7.Controls.Add(this.grvShow);
@@ -287,13 +283,14 @@
             this.btnUpdate.TabIndex = 41;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txbid
             // 
             this.txbid.Location = new System.Drawing.Point(81, 59);
             this.txbid.Name = "txbid";
-            this.txbid.Size = new System.Drawing.Size(53, 23);
+            this.txbid.Size = new System.Drawing.Size(53, 27);
             this.txbid.TabIndex = 40;
             // 
             // grvShow
@@ -302,6 +299,7 @@
             this.grvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvShow.Location = new System.Drawing.Point(463, 178);
             this.grvShow.Name = "grvShow";
+            this.grvShow.RowHeadersWidth = 51;
             this.grvShow.Size = new System.Drawing.Size(581, 130);
             this.grvShow.TabIndex = 39;
             // 
@@ -311,7 +309,7 @@
             this.btnshowDB.Name = "btnshowDB";
             this.btnshowDB.Size = new System.Drawing.Size(75, 53);
             this.btnshowDB.TabIndex = 38;
-            this.btnshowDB.Text = "Show DB";
+            this.btnshowDB.Text = "Show Students";
             this.btnshowDB.UseVisualStyleBackColor = true;
             this.btnshowDB.Click += new System.EventHandler(this.btnshowDB_Click);
             // 
@@ -321,7 +319,7 @@
             this.btnSaveDB.Name = "btnSaveDB";
             this.btnSaveDB.Size = new System.Drawing.Size(75, 53);
             this.btnSaveDB.TabIndex = 37;
-            this.btnSaveDB.Text = "Save DB";
+            this.btnSaveDB.Text = "Save";
             this.btnSaveDB.UseVisualStyleBackColor = true;
             this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
             // 
@@ -354,7 +352,7 @@
             this.textBox_data_USER.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_USER.MaxLength = 64;
             this.textBox_data_USER.Name = "textBox_data_USER";
-            this.textBox_data_USER.Size = new System.Drawing.Size(411, 21);
+            this.textBox_data_USER.Size = new System.Drawing.Size(411, 25);
             this.textBox_data_USER.TabIndex = 1;
             // 
             // label9
@@ -364,7 +362,7 @@
             this.label9.Location = new System.Drawing.Point(18, 136);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 15);
+            this.label9.Size = new System.Drawing.Size(64, 19);
             this.label9.TabIndex = 35;
             this.label9.Text = "USER:";
             // 
@@ -375,7 +373,7 @@
             this.label12.Location = new System.Drawing.Point(721, 136);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 15);
+            this.label12.Size = new System.Drawing.Size(53, 19);
             this.label12.TabIndex = 29;
             this.label12.Text = "RFU:";
             // 
@@ -386,7 +384,7 @@
             this.label6.Location = new System.Drawing.Point(721, 92);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 15);
+            this.label6.Size = new System.Drawing.Size(53, 19);
             this.label6.TabIndex = 29;
             this.label6.Text = "TID:";
             // 
@@ -397,7 +395,7 @@
             this.textBox_data_RFU.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_RFU.Name = "textBox_data_RFU";
             this.textBox_data_RFU.ReadOnly = true;
-            this.textBox_data_RFU.Size = new System.Drawing.Size(234, 21);
+            this.textBox_data_RFU.Size = new System.Drawing.Size(234, 25);
             this.textBox_data_RFU.TabIndex = 5;
             // 
             // label5
@@ -407,7 +405,7 @@
             this.label5.Location = new System.Drawing.Point(18, 92);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.Size = new System.Drawing.Size(53, 19);
             this.label5.TabIndex = 29;
             this.label5.Text = "EPC:";
             // 
@@ -418,7 +416,7 @@
             this.textBox_data_TID.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_TID.Name = "textBox_data_TID";
             this.textBox_data_TID.ReadOnly = true;
-            this.textBox_data_TID.Size = new System.Drawing.Size(234, 21);
+            this.textBox_data_TID.Size = new System.Drawing.Size(234, 25);
             this.textBox_data_TID.TabIndex = 28;
             // 
             // label16
@@ -429,7 +427,7 @@
             this.label16.Location = new System.Drawing.Point(373, 29);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(280, 23);
+            this.label16.Size = new System.Drawing.Size(361, 29);
             this.label16.TabIndex = 33;
             this.label16.Text = "FOUR CARD MEMORY AREA";
             // 
@@ -440,7 +438,7 @@
             this.textBox_data_EPC.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_EPC.MaxLength = 24;
             this.textBox_data_EPC.Name = "textBox_data_EPC";
-            this.textBox_data_EPC.Size = new System.Drawing.Size(234, 21);
+            this.textBox_data_EPC.Size = new System.Drawing.Size(234, 25);
             this.textBox_data_EPC.TabIndex = 3;
             // 
             // Write_EPC
@@ -481,11 +479,11 @@
             this.tabScan.Controls.Add(this.groupBox2);
             this.tabScan.Controls.Add(this.label23);
             this.tabScan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabScan.Location = new System.Drawing.Point(4, 24);
+            this.tabScan.Location = new System.Drawing.Point(4, 26);
             this.tabScan.Margin = new System.Windows.Forms.Padding(4);
             this.tabScan.Name = "tabScan";
             this.tabScan.Padding = new System.Windows.Forms.Padding(4);
-            this.tabScan.Size = new System.Drawing.Size(1057, 329);
+            this.tabScan.Size = new System.Drawing.Size(1057, 327);
             this.tabScan.TabIndex = 2;
             this.tabScan.Text = "Tags Query";
             // 
@@ -534,7 +532,7 @@
             this.label_query_speed.Location = new System.Drawing.Point(486, 76);
             this.label_query_speed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_query_speed.Name = "label_query_speed";
-            this.label_query_speed.Size = new System.Drawing.Size(22, 21);
+            this.label_query_speed.Size = new System.Drawing.Size(27, 27);
             this.label_query_speed.TabIndex = 40;
             this.label_query_speed.Text = "0";
             // 
@@ -544,7 +542,7 @@
             this.label43.Location = new System.Drawing.Point(346, 82);
             this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(72, 16);
+            this.label43.Size = new System.Drawing.Size(87, 19);
             this.label43.TabIndex = 39;
             this.label43.Text = "Speed(p/s):";
             // 
@@ -556,7 +554,7 @@
             this.label_query_time.Location = new System.Drawing.Point(298, 76);
             this.label_query_time.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_query_time.Name = "label_query_time";
-            this.label_query_time.Size = new System.Drawing.Size(22, 21);
+            this.label_query_time.Size = new System.Drawing.Size(27, 27);
             this.label_query_time.TabIndex = 38;
             this.label_query_time.Text = "0";
             // 
@@ -566,7 +564,7 @@
             this.label35.Location = new System.Drawing.Point(174, 82);
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(73, 16);
+            this.label35.Size = new System.Drawing.Size(81, 19);
             this.label35.TabIndex = 37;
             this.label35.Text = "Times（s）：";
             // 
@@ -578,7 +576,7 @@
             this.label_tags_total.Location = new System.Drawing.Point(122, 76);
             this.label_tags_total.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_tags_total.Name = "label_tags_total";
-            this.label_tags_total.Size = new System.Drawing.Size(22, 21);
+            this.label_tags_total.Size = new System.Drawing.Size(27, 27);
             this.label_tags_total.TabIndex = 36;
             this.label_tags_total.Text = "0";
             // 
@@ -605,7 +603,7 @@
             this.textBox_multi_time.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_multi_time.MaxLength = 9;
             this.textBox_multi_time.Name = "textBox_multi_time";
-            this.textBox_multi_time.Size = new System.Drawing.Size(74, 23);
+            this.textBox_multi_time.Size = new System.Drawing.Size(74, 27);
             this.textBox_multi_time.TabIndex = 38;
             this.textBox_multi_time.Text = "0";
             this.textBox_multi_time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -617,7 +615,7 @@
             this.label44.Location = new System.Drawing.Point(481, 24);
             this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(267, 16);
+            this.label44.Size = new System.Drawing.Size(306, 19);
             this.label44.TabIndex = 42;
             this.label44.Text = "Frequency:                     (0 means unlimited)";
             this.label44.Visible = false;
@@ -628,7 +626,7 @@
             this.label36.Location = new System.Drawing.Point(389, 74);
             this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(0, 16);
+            this.label36.Size = new System.Drawing.Size(0, 19);
             this.label36.TabIndex = 40;
             // 
             // radioButton_single
@@ -637,7 +635,7 @@
             this.radioButton_single.Location = new System.Drawing.Point(98, 23);
             this.radioButton_single.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton_single.Name = "radioButton_single";
-            this.radioButton_single.Size = new System.Drawing.Size(60, 20);
+            this.radioButton_single.Size = new System.Drawing.Size(73, 23);
             this.radioButton_single.TabIndex = 39;
             this.radioButton_single.Text = "Single";
             this.radioButton_single.UseVisualStyleBackColor = true;
@@ -649,7 +647,7 @@
             this.radioButton_multi.Location = new System.Drawing.Point(255, 24);
             this.radioButton_multi.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton_multi.Name = "radioButton_multi";
-            this.radioButton_multi.Size = new System.Drawing.Size(47, 20);
+            this.radioButton_multi.Size = new System.Drawing.Size(57, 23);
             this.radioButton_multi.TabIndex = 39;
             this.radioButton_multi.TabStop = true;
             this.radioButton_multi.Text = "MU";
@@ -661,7 +659,7 @@
             this.label23.Location = new System.Drawing.Point(33, 82);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(85, 16);
+            this.label23.Size = new System.Drawing.Size(96, 19);
             this.label23.TabIndex = 12;
             this.label23.Text = "Tags counts：";
             // 
@@ -688,28 +686,9 @@
             this.pbSr.TabIndex = 1;
             this.pbSr.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(18, 170);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 15);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Student:";
-            // 
-            // comboBoxStudents
-            // 
-            this.comboBoxStudents.FormattingEnabled = true;
-            this.comboBoxStudents.Location = new System.Drawing.Point(104, 167);
-            this.comboBoxStudents.Name = "comboBoxStudents";
-            this.comboBoxStudents.Size = new System.Drawing.Size(316, 24);
-            this.comboBoxStudents.TabIndex = 43;
-            // 
             // SrDemo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1267, 492);
@@ -799,8 +778,6 @@
         private System.Windows.Forms.DataGridView grvShow;
         private System.Windows.Forms.TextBox txbid;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.ComboBox comboBoxStudents;
-        private System.Windows.Forms.Label label3;
     }
 }
 

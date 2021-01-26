@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SrDemo
@@ -12,6 +12,8 @@ namespace SrDemo
         [STAThread]
         static void Main()
         {
+            log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.config"));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SrDemo());
