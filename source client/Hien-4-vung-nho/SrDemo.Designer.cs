@@ -85,6 +85,11 @@
             this.radioButtonRegistStudent = new System.Windows.Forms.RadioButton();
             this.radioButtonXinDiTre = new System.Windows.Forms.RadioButton();
             this.radioButtonXinVeSom = new System.Windows.Forms.RadioButton();
+            this.lbIdHs = new System.Windows.Forms.Label();
+            this.labelHsCode = new System.Windows.Forms.Label();
+            this.textBoxHsCode = new System.Windows.Forms.TextBox();
+            this.labelClass = new System.Windows.Forms.Label();
+            this.textBoxClass = new System.Windows.Forms.TextBox();
             this.gbCOM.SuspendLayout();
             this.tabOp.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -253,6 +258,11 @@
             // groupBox7
             // 
             this.groupBox7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox7.Controls.Add(this.labelClass);
+            this.groupBox7.Controls.Add(this.textBoxClass);
+            this.groupBox7.Controls.Add(this.labelHsCode);
+            this.groupBox7.Controls.Add(this.textBoxHsCode);
+            this.groupBox7.Controls.Add(this.lbIdHs);
             this.groupBox7.Controls.Add(this.groupBoxChonLoai);
             this.groupBox7.Controls.Add(this.btnUpdate);
             this.groupBox7.Controls.Add(this.txbid);
@@ -294,18 +304,21 @@
             // 
             // txbid
             // 
-            this.txbid.Location = new System.Drawing.Point(81, 59);
+            this.txbid.Location = new System.Drawing.Point(129, 56);
             this.txbid.Name = "txbid";
+            this.txbid.ReadOnly = true;
             this.txbid.Size = new System.Drawing.Size(53, 23);
             this.txbid.TabIndex = 40;
             // 
             // grvShow
             // 
+            this.grvShow.AllowUserToResizeRows = false;
             this.grvShow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvShow.Location = new System.Drawing.Point(535, 210);
             this.grvShow.Name = "grvShow";
             this.grvShow.RowHeadersWidth = 51;
+            this.grvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvShow.Size = new System.Drawing.Size(509, 147);
             this.grvShow.TabIndex = 39;
             // 
@@ -431,7 +444,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(373, 29);
+            this.label16.Location = new System.Drawing.Point(373, 20);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(280, 23);
@@ -490,7 +503,7 @@
             this.tabScan.Margin = new System.Windows.Forms.Padding(4);
             this.tabScan.Name = "tabScan";
             this.tabScan.Padding = new System.Windows.Forms.Padding(4);
-            this.tabScan.Size = new System.Drawing.Size(1057, 329);
+            this.tabScan.Size = new System.Drawing.Size(1057, 372);
             this.tabScan.TabIndex = 2;
             this.tabScan.Text = "Tags Query";
             // 
@@ -724,7 +737,6 @@
             this.radioButtonXinDiTre.Name = "radioButtonXinDiTre";
             this.radioButtonXinDiTre.Size = new System.Drawing.Size(89, 20);
             this.radioButtonXinDiTre.TabIndex = 1;
-            this.radioButtonXinDiTre.TabStop = true;
             this.radioButtonXinDiTre.Text = "Xin vào trễ";
             this.radioButtonXinDiTre.UseVisualStyleBackColor = true;
             // 
@@ -735,9 +747,57 @@
             this.radioButtonXinVeSom.Name = "radioButtonXinVeSom";
             this.radioButtonXinVeSom.Size = new System.Drawing.Size(91, 20);
             this.radioButtonXinVeSom.TabIndex = 2;
-            this.radioButtonXinVeSom.TabStop = true;
             this.radioButtonXinVeSom.Text = "Xin về sớm";
             this.radioButtonXinVeSom.UseVisualStyleBackColor = true;
+            // 
+            // lbIdHs
+            // 
+            this.lbIdHs.AutoSize = true;
+            this.lbIdHs.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbIdHs.Location = new System.Drawing.Point(18, 59);
+            this.lbIdHs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbIdHs.Name = "lbIdHs";
+            this.lbIdHs.Size = new System.Drawing.Size(104, 15);
+            this.lbIdHs.TabIndex = 43;
+            this.lbIdHs.Text = "ID Học sinh";
+            // 
+            // labelHsCode
+            // 
+            this.labelHsCode.AutoSize = true;
+            this.labelHsCode.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelHsCode.Location = new System.Drawing.Point(200, 59);
+            this.labelHsCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelHsCode.Name = "labelHsCode";
+            this.labelHsCode.Size = new System.Drawing.Size(104, 15);
+            this.labelHsCode.TabIndex = 45;
+            this.labelHsCode.Text = "Mã Học sinh";
+            // 
+            // textBoxHsCode
+            // 
+            this.textBoxHsCode.Location = new System.Drawing.Point(311, 56);
+            this.textBoxHsCode.Name = "textBoxHsCode";
+            this.textBoxHsCode.ReadOnly = true;
+            this.textBoxHsCode.Size = new System.Drawing.Size(138, 23);
+            this.textBoxHsCode.TabIndex = 44;
+            // 
+            // labelClass
+            // 
+            this.labelClass.AutoSize = true;
+            this.labelClass.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelClass.Location = new System.Drawing.Point(473, 58);
+            this.labelClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelClass.Name = "labelClass";
+            this.labelClass.Size = new System.Drawing.Size(50, 15);
+            this.labelClass.TabIndex = 47;
+            this.labelClass.Text = "Lớp: ";
+            // 
+            // textBoxClass
+            // 
+            this.textBoxClass.Location = new System.Drawing.Point(524, 55);
+            this.textBoxClass.Name = "textBoxClass";
+            this.textBoxClass.ReadOnly = true;
+            this.textBoxClass.Size = new System.Drawing.Size(119, 23);
+            this.textBoxClass.TabIndex = 46;
             // 
             // SrDemo
             // 
@@ -837,6 +897,11 @@
         private System.Windows.Forms.RadioButton radioButtonXinVeSom;
         private System.Windows.Forms.RadioButton radioButtonXinDiTre;
         private System.Windows.Forms.RadioButton radioButtonRegistStudent;
+        private System.Windows.Forms.Label labelHsCode;
+        private System.Windows.Forms.TextBox textBoxHsCode;
+        private System.Windows.Forms.Label lbIdHs;
+        private System.Windows.Forms.Label labelClass;
+        private System.Windows.Forms.TextBox textBoxClass;
     }
 }
 

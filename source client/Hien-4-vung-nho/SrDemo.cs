@@ -53,6 +53,8 @@ namespace SrDemo
         public void binding()
         {
             txbid.DataBindings.Add(new Binding("Text", grvShow.DataSource, "id", true, DataSourceUpdateMode.Never));
+            textBoxHsCode.DataBindings.Add(new Binding("Text", grvShow.DataSource, "HS_CODE", true, DataSourceUpdateMode.Never));
+            textBoxClass.DataBindings.Add(new Binding("Text", grvShow.DataSource, "CLASS", true, DataSourceUpdateMode.Never));
             textBox_data_EPC.DataBindings.Add(new Binding("Text", grvShow.DataSource, "EPC", true, DataSourceUpdateMode.Never));
             textBox_data_TID.DataBindings.Add(new Binding("Text", grvShow.DataSource, "TID", true, DataSourceUpdateMode.Never));
             textBox_data_USER.DataBindings.Add(new Binding("Text", grvShow.DataSource, "USER", true, DataSourceUpdateMode.Never));
@@ -1556,11 +1558,21 @@ namespace SrDemo
 
         private void btnclear_Click(object sender, EventArgs e)
         {
+            ClearData();
+        }
+
+        private void ClearData()
+        {
+            txbid.Text = "";
             textBox_data_EPC.Text = "";
             textBox_data_RFU.Text = "";
             textBox_data_TID.Text = "";
             textBox_data_USER.Text = "";
+            textBoxClass.Text = "";
+            textBoxHsCode.Text = "";
             radioButtonRegistStudent.Checked = true;
+            grvShow.Update();
+            grvShow.Refresh();
         }
 
         private void btnshowDB_Click(object sender, EventArgs e)
@@ -1582,7 +1594,11 @@ namespace SrDemo
             //    USER = textBox_data_USER.Text.Trim(),
             //    RFU = textBox_data_RFU.Text.Trim()
             //});
-
+            if (string.IsNullOrEmpty(textBox_data_EPC.Text))
+            {
+                MessageBox.Show($"Giá trị EPC không hợp lệ","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DialogResult result = MessageBox.Show("Bạn có chắc chắn thực hiện?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
@@ -1590,7 +1606,7 @@ namespace SrDemo
                 int.TryParse(txbid.Text, out int hs_id);
                 if (radioButtonRegistStudent.Checked)
                 {
-                    var response = trackingApi.PutRegisterStudentCard(hs_id, textBox_data_USER.Text, textBox_data_EPC.Text.Trim());
+                    var response = trackingApi.PutRegisterStudentCard(textBoxHsCode.Text, textBox_data_USER.Text, textBox_data_EPC.Text.Trim(), textBoxClass.Text);
                     if (response.result)
                     {
                         MessageBox.Show($"Đăng ký thẻ cho học sinh {textBox_data_USER.Text} thành công!");
@@ -1606,6 +1622,7 @@ namespace SrDemo
                     if (!_listStudentsResponse.Any(_=>_.card_code!= null && _.card_code.Equals(textBox_data_EPC.Text)))
                     {
                         MessageBox.Show($"Thẻ chưa được đăng ký!");
+                        return;
                     }
 
                     var response = trackingApi.XinVeSom(textBox_data_EPC.Text);
@@ -1623,6 +1640,7 @@ namespace SrDemo
                     if (!_listStudentsResponse.Any(_ => _.card_code != null && _.card_code.Equals(textBox_data_EPC.Text)))
                     {
                         MessageBox.Show($"Thẻ chưa được đăng ký!");
+                        return;
                     }
 
                     var response = trackingApi.XinVoTre(textBox_data_EPC.Text);
@@ -1637,9 +1655,8 @@ namespace SrDemo
                 }
                 _listStudentsResponse = trackingApi.GetListStudents();
                 grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
-                grvShow.Update();
-                grvShow.Refresh();
             }
+            ClearData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

@@ -78,7 +78,7 @@ namespace TrackPerson.Service
             _logger.Error("Token trống");
             return new List<StudentInfoResponse>();
         }
-        public BaseApiResponse PutRegisterStudentCard(int hs_id, string hs_name, string card_code)
+        public BaseApiResponse PutRegisterStudentCard(string hs_code, string hs_name, string card_code, string hs_class)
         {
             var token = GetToken();
             if (!string.IsNullOrEmpty(token))
@@ -89,9 +89,10 @@ namespace TrackPerson.Service
                 request.AddHeader("Authorization", $"Bearer {token}");
                 request.AddJsonBody(new
                 {
-                    hs_id,
+                    hs_code,
                     hs_name,
-                    card_code
+                    card_code,
+                    hs_class
                 }, "application/json; charset=utf-8");
 
                 var result = client.Execute<BaseApiResponse>(request);

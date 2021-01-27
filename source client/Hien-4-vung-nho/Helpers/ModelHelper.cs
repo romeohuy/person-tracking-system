@@ -14,6 +14,8 @@ namespace SrDemo.Helpers
                 return studentsResponse.Select(st => new TrackingPerson()
                 {
                     Id = st.hs_id,
+                    HS_CODE = st.hs_code,
+                    CLASS = st.hs_class,
                     EPC = st.card_code,
                     RFU = string.Empty,
                     TID = string.Empty,
