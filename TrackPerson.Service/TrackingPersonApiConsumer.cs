@@ -74,33 +74,81 @@ namespace TrackPerson.Service
                 _logger.Info($"Get students api: Count {listStudents.Count}");
                 return listStudents;
             }
+
             _logger.Error("Token trống");
-            throw new Exception("Token trống");
+            return new List<StudentInfoResponse>();
         }
-        public RegisterStudentResponse PutRegisterStudentCard(int hs_id, string card_code)
+        public BaseApiResponse PutRegisterStudentCard(int hs_id, string hs_name, string card_code)
         {
             var token = GetToken();
             if (!string.IsNullOrEmpty(token))
             {
                 var client = new RestClient();
 
-                var request = new RestRequest(new Uri(Path.Combine(_rootApi, "customer-child/card-submit")), Method.POST, DataFormat.Json);
+                var request = new RestRequest(new Uri(Path.Combine(_rootApi, "customer-child/card-new-submit")), Method.POST, DataFormat.Json);
                 request.AddHeader("Authorization", $"Bearer {token}");
                 request.AddJsonBody(new
                 {
                     hs_id,
+                    hs_name,
                     card_code
                 }, "application/json; charset=utf-8");
 
-                var result = client.Execute<RegisterStudentResponse>(request);
-                if (result.IsSuccessful)
-                {
-                    _logger.Info($"Regist students: {JsonConvert.SerializeObject(request)}");
-                    return result.Data;
-                }
+                var result = client.Execute<BaseApiResponse>(request);
+                _logger.Info($"Regist students: {JsonConvert.SerializeObject(request)}");
+                return result.Data;
             }
             _logger.Error("Token trống");
-            throw new Exception("Token trống");
+            return new BaseApiResponse() { message = "Token trống" };
+        }
+        public BaseApiResponse XinVoTre(string epc)
+        {
+            var token = GetToken();
+            if (!string.IsNullOrEmpty(token))
+            {
+                var client = new RestClient();
+
+                var request = new RestRequest(new Uri(Path.Combine(_rootApi, "customer-child/in-request")), Method.POST, DataFormat.Json);
+                request.AddHeader("Authorization", $"Bearer {token}");
+                request.AddJsonBody(new
+                {
+                    antID = 0,
+                    epc,
+                    devId = 0,
+                    LastTime = DateTime.Now
+                }, "application/json; charset=utf-8");
+
+                var result = client.Execute<BaseApiResponse>(request);
+                _logger.Info($"Regist students: {JsonConvert.SerializeObject(request)}");
+                return result.Data;
+            }
+            _logger.Error("Token trống");
+            return new BaseApiResponse(){ message = "Token trống"};
+        }
+
+        public BaseApiResponse XinVeSom(string epc)
+        {
+            var token = GetToken();
+            if (!string.IsNullOrEmpty(token))
+            {
+                var client = new RestClient();
+
+                var request = new RestRequest(new Uri(Path.Combine(_rootApi, "customer-child/out-request")), Method.POST, DataFormat.Json);
+                request.AddHeader("Authorization", $"Bearer {token}");
+                request.AddJsonBody(new
+                {
+                    antID = 0,
+                    epc,
+                    devId = 0,
+                    LastTime = DateTime.Now
+                }, "application/json; charset=utf-8");
+
+                var result = client.Execute<BaseApiResponse>(request);
+                _logger.Info($"Regist students: {JsonConvert.SerializeObject(request)}");
+                return result.Data;
+            }
+            _logger.Error("Token trống");
+            return new BaseApiResponse() { message = "Token trống" };
         }
     }
 }

@@ -30,7 +30,7 @@ namespace SrDemo
                 }
 
             }
-  
+
         }
         /// <summary>
         /// 清理所有正在使用的资源。
@@ -52,7 +52,7 @@ namespace SrDemo
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         /// 
-    
+
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();

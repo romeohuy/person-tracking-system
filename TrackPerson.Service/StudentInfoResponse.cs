@@ -11,6 +11,7 @@ namespace TrackPerson.Service
         public string card_id { get; set; }
         public string card_code { get; set; }
         public string card_name { get; set; }
+        public int card_status { get; set; }
     }
 
     public class MetaResponse

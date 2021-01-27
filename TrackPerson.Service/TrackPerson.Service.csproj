@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenResponse.cs" />
-    <Compile Include="RegisterStudentResponse.cs" />
+    <Compile Include="BaseApiResponse.cs" />
     <Compile Include="StudentInfoResponse.cs" />
     <Compile Include="TrackingPersonApiConsumer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

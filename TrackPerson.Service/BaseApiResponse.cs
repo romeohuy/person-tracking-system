@@ -1,6 +1,6 @@
 ﻿namespace TrackPerson.Service
 {
-    public class RegisterStudentResponse
+    public class BaseApiResponse
     {
         public string resonseTime { get; set; }
         public bool result { get; set; }

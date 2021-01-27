@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.IO.Ports;              //SerialPort
+using System.IO.Ports;
+using System.Linq; //SerialPort
 using System.Net;
 using System.Threading;             //thread
 using System.Windows.Forms;
@@ -938,7 +939,21 @@ namespace SrDemo
                 {
                     oper_result = "Read Tag data EPC fail.";//";khong the doc nhan ( 读取标签失败！)
                 }
+
                 UpdateLog(oper_result);
+
+                //Selected row
+                if (textBox_data_EPC.Text != null && (radioButtonXinVeSom.Checked || radioButtonXinDiTre.Checked))
+                {
+                    foreach (DataGridViewRow row in grvShow.Rows)
+                    {
+                        if (row.Cells["EPC"].Value != null && row.Cells["EPC"].Value.ToString().ToLower().Equals(textBox_data_EPC.Text?.ToLower()))
+                        {
+                            row.Selected = true; break;
+                        }
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -1545,6 +1560,7 @@ namespace SrDemo
             textBox_data_RFU.Text = "";
             textBox_data_TID.Text = "";
             textBox_data_USER.Text = "";
+            radioButtonRegistStudent.Checked = true;
         }
 
         private void btnshowDB_Click(object sender, EventArgs e)
@@ -1566,15 +1582,64 @@ namespace SrDemo
             //    USER = textBox_data_USER.Text.Trim(),
             //    RFU = textBox_data_RFU.Text.Trim()
             //});
-            var trackingApi = new TrackingPersonApiConsumer();
-            int.TryParse(txbid.Text, out int hs_id);
-            var response = trackingApi.PutRegisterStudentCard(hs_id, textBox_data_EPC.Text.Trim());
-            if (response.result)
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn thực hiện?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Lưu học sinh thành công!");
+                var trackingApi = new TrackingPersonApiConsumer();
+                int.TryParse(txbid.Text, out int hs_id);
+                if (radioButtonRegistStudent.Checked)
+                {
+                    var response = trackingApi.PutRegisterStudentCard(hs_id, textBox_data_USER.Text, textBox_data_EPC.Text.Trim());
+                    if (response.result)
+                    {
+                        MessageBox.Show($"Đăng ký thẻ cho học sinh {textBox_data_USER.Text} thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(response.message, "Lỗi api", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (radioButtonXinVeSom.Checked)
+                {
+                    if (!_listStudentsResponse.Any(_=>_.card_code!= null && _.card_code.Equals(textBox_data_EPC.Text)))
+                    {
+                        MessageBox.Show($"Thẻ chưa được đăng ký!");
+                    }
+
+                    var response = trackingApi.XinVeSom(textBox_data_EPC.Text);
+                    if (response.result)
+                    {
+                        MessageBox.Show($"Đã ghi nhận học sinh {textBox_data_USER.Text} về sớm.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(response.message, "Lỗi api", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                if (radioButtonXinDiTre.Checked)
+                {
+                    if (!_listStudentsResponse.Any(_ => _.card_code != null && _.card_code.Equals(textBox_data_EPC.Text)))
+                    {
+                        MessageBox.Show($"Thẻ chưa được đăng ký!");
+                    }
+
+                    var response = trackingApi.XinVoTre(textBox_data_EPC.Text);
+                    if (response.result)
+                    {
+                        MessageBox.Show($"Đã ghi nhận học sinh {textBox_data_USER.Text} vào lớp trễ.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(response.message, "Lỗi api", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                _listStudentsResponse = trackingApi.GetListStudents();
+                grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
+                grvShow.Update();
+                grvShow.Refresh();
             }
-            _listStudentsResponse = trackingApi.GetListStudents();
-            grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
