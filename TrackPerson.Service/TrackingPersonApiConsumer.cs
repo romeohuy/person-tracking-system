@@ -49,7 +49,7 @@ namespace TrackPerson.Service
                 var page = 1;
                 while (true)
                 {
-                    var request = new RestRequest(new Uri(Path.Combine(_rootApi, $"customer-child?page={page}")), Method.GET);
+                     var request = new RestRequest(new Uri(Path.Combine(_rootApi, $"customer-child?page={page}")), Method.GET);
                     request.AddHeader("Authorization", $"Bearer {token}");
                     try
                     {

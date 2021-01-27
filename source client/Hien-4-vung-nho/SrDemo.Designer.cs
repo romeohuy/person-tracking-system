@@ -45,6 +45,15 @@
             this.timer_auto = new System.Windows.Forms.Timer(this.components);
             this.tabOp = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.labelClass = new System.Windows.Forms.Label();
+            this.textBoxClass = new System.Windows.Forms.TextBox();
+            this.labelHsCode = new System.Windows.Forms.Label();
+            this.textBoxHsCode = new System.Windows.Forms.TextBox();
+            this.lbIdHs = new System.Windows.Forms.Label();
+            this.groupBoxChonLoai = new System.Windows.Forms.GroupBox();
+            this.radioButtonXinVeSom = new System.Windows.Forms.RadioButton();
+            this.radioButtonXinDiTre = new System.Windows.Forms.RadioButton();
+            this.radioButtonRegistStudent = new System.Windows.Forms.RadioButton();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txbid = new System.Windows.Forms.TextBox();
             this.grvShow = new System.Windows.Forms.DataGridView();
@@ -81,24 +90,15 @@
             this.label23 = new System.Windows.Forms.Label();
             this.tabDemo = new System.Windows.Forms.TabControl();
             this.pbSr = new System.Windows.Forms.PictureBox();
-            this.groupBoxChonLoai = new System.Windows.Forms.GroupBox();
-            this.radioButtonRegistStudent = new System.Windows.Forms.RadioButton();
-            this.radioButtonXinDiTre = new System.Windows.Forms.RadioButton();
-            this.radioButtonXinVeSom = new System.Windows.Forms.RadioButton();
-            this.lbIdHs = new System.Windows.Forms.Label();
-            this.labelHsCode = new System.Windows.Forms.Label();
-            this.textBoxHsCode = new System.Windows.Forms.TextBox();
-            this.labelClass = new System.Windows.Forms.Label();
-            this.textBoxClass = new System.Windows.Forms.TextBox();
             this.gbCOM.SuspendLayout();
             this.tabOp.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBoxChonLoai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvShow)).BeginInit();
             this.tabScan.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabDemo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSr)).BeginInit();
-            this.groupBoxChonLoai.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbCOM
@@ -291,6 +291,97 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Read/Write ";
             // 
+            // labelClass
+            // 
+            this.labelClass.AutoSize = true;
+            this.labelClass.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelClass.Location = new System.Drawing.Point(473, 58);
+            this.labelClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelClass.Name = "labelClass";
+            this.labelClass.Size = new System.Drawing.Size(50, 15);
+            this.labelClass.TabIndex = 47;
+            this.labelClass.Text = "Lớp: ";
+            // 
+            // textBoxClass
+            // 
+            this.textBoxClass.Location = new System.Drawing.Point(524, 55);
+            this.textBoxClass.Name = "textBoxClass";
+            this.textBoxClass.Size = new System.Drawing.Size(119, 23);
+            this.textBoxClass.TabIndex = 46;
+            // 
+            // labelHsCode
+            // 
+            this.labelHsCode.AutoSize = true;
+            this.labelHsCode.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelHsCode.Location = new System.Drawing.Point(200, 59);
+            this.labelHsCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelHsCode.Name = "labelHsCode";
+            this.labelHsCode.Size = new System.Drawing.Size(104, 15);
+            this.labelHsCode.TabIndex = 45;
+            this.labelHsCode.Text = "Mã Học sinh";
+            // 
+            // textBoxHsCode
+            // 
+            this.textBoxHsCode.Location = new System.Drawing.Point(311, 56);
+            this.textBoxHsCode.Name = "textBoxHsCode";
+            this.textBoxHsCode.Size = new System.Drawing.Size(138, 23);
+            this.textBoxHsCode.TabIndex = 44;
+            // 
+            // lbIdHs
+            // 
+            this.lbIdHs.AutoSize = true;
+            this.lbIdHs.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbIdHs.Location = new System.Drawing.Point(18, 59);
+            this.lbIdHs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbIdHs.Name = "lbIdHs";
+            this.lbIdHs.Size = new System.Drawing.Size(104, 15);
+            this.lbIdHs.TabIndex = 43;
+            this.lbIdHs.Text = "ID Học sinh";
+            // 
+            // groupBoxChonLoai
+            // 
+            this.groupBoxChonLoai.Controls.Add(this.radioButtonXinVeSom);
+            this.groupBoxChonLoai.Controls.Add(this.radioButtonXinDiTre);
+            this.groupBoxChonLoai.Controls.Add(this.radioButtonRegistStudent);
+            this.groupBoxChonLoai.Location = new System.Drawing.Point(21, 178);
+            this.groupBoxChonLoai.Name = "groupBoxChonLoai";
+            this.groupBoxChonLoai.Size = new System.Drawing.Size(489, 70);
+            this.groupBoxChonLoai.TabIndex = 42;
+            this.groupBoxChonLoai.TabStop = false;
+            this.groupBoxChonLoai.Text = "Chọn chức năng";
+            // 
+            // radioButtonXinVeSom
+            // 
+            this.radioButtonXinVeSom.AutoSize = true;
+            this.radioButtonXinVeSom.Location = new System.Drawing.Point(381, 32);
+            this.radioButtonXinVeSom.Name = "radioButtonXinVeSom";
+            this.radioButtonXinVeSom.Size = new System.Drawing.Size(91, 20);
+            this.radioButtonXinVeSom.TabIndex = 2;
+            this.radioButtonXinVeSom.Text = "Xin về sớm";
+            this.radioButtonXinVeSom.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonXinDiTre
+            // 
+            this.radioButtonXinDiTre.AutoSize = true;
+            this.radioButtonXinDiTre.Location = new System.Drawing.Point(194, 32);
+            this.radioButtonXinDiTre.Name = "radioButtonXinDiTre";
+            this.radioButtonXinDiTre.Size = new System.Drawing.Size(89, 20);
+            this.radioButtonXinDiTre.TabIndex = 1;
+            this.radioButtonXinDiTre.Text = "Xin vào trễ";
+            this.radioButtonXinDiTre.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonRegistStudent
+            // 
+            this.radioButtonRegistStudent.AutoSize = true;
+            this.radioButtonRegistStudent.Checked = true;
+            this.radioButtonRegistStudent.Location = new System.Drawing.Point(11, 32);
+            this.radioButtonRegistStudent.Name = "radioButtonRegistStudent";
+            this.radioButtonRegistStudent.Size = new System.Drawing.Size(95, 20);
+            this.radioButtonRegistStudent.TabIndex = 0;
+            this.radioButtonRegistStudent.TabStop = true;
+            this.radioButtonRegistStudent.Text = "Đăng ký thẻ";
+            this.radioButtonRegistStudent.UseVisualStyleBackColor = true;
+            // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(425, 254);
@@ -306,21 +397,25 @@
             // 
             this.txbid.Location = new System.Drawing.Point(129, 56);
             this.txbid.Name = "txbid";
-            this.txbid.ReadOnly = true;
             this.txbid.Size = new System.Drawing.Size(53, 23);
             this.txbid.TabIndex = 40;
             // 
             // grvShow
             // 
+            this.grvShow.AllowUserToAddRows = false;
+            this.grvShow.AllowUserToDeleteRows = false;
             this.grvShow.AllowUserToResizeRows = false;
             this.grvShow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvShow.Location = new System.Drawing.Point(535, 210);
+            this.grvShow.MultiSelect = false;
             this.grvShow.Name = "grvShow";
             this.grvShow.RowHeadersWidth = 51;
             this.grvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvShow.Size = new System.Drawing.Size(509, 147);
             this.grvShow.TabIndex = 39;
+            this.grvShow.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvShow_CellClick);
+            this.grvShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvShow_CellContentClick);
             // 
             // btnshowDB
             // 
@@ -368,11 +463,11 @@
             // textBox_data_USER
             // 
             this.textBox_data_USER.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_data_USER.Location = new System.Drawing.Point(82, 133);
+            this.textBox_data_USER.Location = new System.Drawing.Point(94, 133);
             this.textBox_data_USER.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_USER.MaxLength = 64;
             this.textBox_data_USER.Name = "textBox_data_USER";
-            this.textBox_data_USER.Size = new System.Drawing.Size(411, 21);
+            this.textBox_data_USER.Size = new System.Drawing.Size(399, 21);
             this.textBox_data_USER.TabIndex = 1;
             // 
             // label9
@@ -422,7 +517,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(18, 92);
+            this.label5.Location = new System.Drawing.Point(18, 110);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 15);
@@ -454,11 +549,11 @@
             // textBox_data_EPC
             // 
             this.textBox_data_EPC.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_data_EPC.Location = new System.Drawing.Point(81, 89);
+            this.textBox_data_EPC.Location = new System.Drawing.Point(94, 109);
             this.textBox_data_EPC.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_EPC.MaxLength = 24;
             this.textBox_data_EPC.Name = "textBox_data_EPC";
-            this.textBox_data_EPC.Size = new System.Drawing.Size(234, 21);
+            this.textBox_data_EPC.Size = new System.Drawing.Size(221, 21);
             this.textBox_data_EPC.TabIndex = 3;
             // 
             // Write_EPC
@@ -706,99 +801,6 @@
             this.pbSr.TabIndex = 1;
             this.pbSr.TabStop = false;
             // 
-            // groupBoxChonLoai
-            // 
-            this.groupBoxChonLoai.Controls.Add(this.radioButtonXinVeSom);
-            this.groupBoxChonLoai.Controls.Add(this.radioButtonXinDiTre);
-            this.groupBoxChonLoai.Controls.Add(this.radioButtonRegistStudent);
-            this.groupBoxChonLoai.Location = new System.Drawing.Point(21, 178);
-            this.groupBoxChonLoai.Name = "groupBoxChonLoai";
-            this.groupBoxChonLoai.Size = new System.Drawing.Size(489, 70);
-            this.groupBoxChonLoai.TabIndex = 42;
-            this.groupBoxChonLoai.TabStop = false;
-            this.groupBoxChonLoai.Text = "Chọn chức năng";
-            // 
-            // radioButtonRegistStudent
-            // 
-            this.radioButtonRegistStudent.AutoSize = true;
-            this.radioButtonRegistStudent.Checked = true;
-            this.radioButtonRegistStudent.Location = new System.Drawing.Point(11, 32);
-            this.radioButtonRegistStudent.Name = "radioButtonRegistStudent";
-            this.radioButtonRegistStudent.Size = new System.Drawing.Size(95, 20);
-            this.radioButtonRegistStudent.TabIndex = 0;
-            this.radioButtonRegistStudent.TabStop = true;
-            this.radioButtonRegistStudent.Text = "Đăng ký thẻ";
-            this.radioButtonRegistStudent.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonXinDiTre
-            // 
-            this.radioButtonXinDiTre.AutoSize = true;
-            this.radioButtonXinDiTre.Location = new System.Drawing.Point(194, 32);
-            this.radioButtonXinDiTre.Name = "radioButtonXinDiTre";
-            this.radioButtonXinDiTre.Size = new System.Drawing.Size(89, 20);
-            this.radioButtonXinDiTre.TabIndex = 1;
-            this.radioButtonXinDiTre.Text = "Xin vào trễ";
-            this.radioButtonXinDiTre.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonXinVeSom
-            // 
-            this.radioButtonXinVeSom.AutoSize = true;
-            this.radioButtonXinVeSom.Location = new System.Drawing.Point(381, 32);
-            this.radioButtonXinVeSom.Name = "radioButtonXinVeSom";
-            this.radioButtonXinVeSom.Size = new System.Drawing.Size(91, 20);
-            this.radioButtonXinVeSom.TabIndex = 2;
-            this.radioButtonXinVeSom.Text = "Xin về sớm";
-            this.radioButtonXinVeSom.UseVisualStyleBackColor = true;
-            // 
-            // lbIdHs
-            // 
-            this.lbIdHs.AutoSize = true;
-            this.lbIdHs.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbIdHs.Location = new System.Drawing.Point(18, 59);
-            this.lbIdHs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbIdHs.Name = "lbIdHs";
-            this.lbIdHs.Size = new System.Drawing.Size(104, 15);
-            this.lbIdHs.TabIndex = 43;
-            this.lbIdHs.Text = "ID Học sinh";
-            // 
-            // labelHsCode
-            // 
-            this.labelHsCode.AutoSize = true;
-            this.labelHsCode.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelHsCode.Location = new System.Drawing.Point(200, 59);
-            this.labelHsCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelHsCode.Name = "labelHsCode";
-            this.labelHsCode.Size = new System.Drawing.Size(104, 15);
-            this.labelHsCode.TabIndex = 45;
-            this.labelHsCode.Text = "Mã Học sinh";
-            // 
-            // textBoxHsCode
-            // 
-            this.textBoxHsCode.Location = new System.Drawing.Point(311, 56);
-            this.textBoxHsCode.Name = "textBoxHsCode";
-            this.textBoxHsCode.ReadOnly = true;
-            this.textBoxHsCode.Size = new System.Drawing.Size(138, 23);
-            this.textBoxHsCode.TabIndex = 44;
-            // 
-            // labelClass
-            // 
-            this.labelClass.AutoSize = true;
-            this.labelClass.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelClass.Location = new System.Drawing.Point(473, 58);
-            this.labelClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelClass.Name = "labelClass";
-            this.labelClass.Size = new System.Drawing.Size(50, 15);
-            this.labelClass.TabIndex = 47;
-            this.labelClass.Text = "Lớp: ";
-            // 
-            // textBoxClass
-            // 
-            this.textBoxClass.Location = new System.Drawing.Point(524, 55);
-            this.textBoxClass.Name = "textBoxClass";
-            this.textBoxClass.ReadOnly = true;
-            this.textBoxClass.Size = new System.Drawing.Size(119, 23);
-            this.textBoxClass.TabIndex = 46;
-            // 
             // SrDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -826,6 +828,8 @@
             this.tabOp.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBoxChonLoai.ResumeLayout(false);
+            this.groupBoxChonLoai.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvShow)).EndInit();
             this.tabScan.ResumeLayout(false);
             this.tabScan.PerformLayout();
@@ -833,8 +837,6 @@
             this.groupBox2.PerformLayout();
             this.tabDemo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSr)).EndInit();
-            this.groupBoxChonLoai.ResumeLayout(false);
-            this.groupBoxChonLoai.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

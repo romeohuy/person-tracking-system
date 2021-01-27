@@ -50,16 +50,16 @@ namespace SrDemo
         private const int listView_net_MAC = 1;
         private const int listView_net_IP = 2;
 
-        public void binding()
-        {
-            txbid.DataBindings.Add(new Binding("Text", grvShow.DataSource, "id", true, DataSourceUpdateMode.Never));
-            textBoxHsCode.DataBindings.Add(new Binding("Text", grvShow.DataSource, "HS_CODE", true, DataSourceUpdateMode.Never));
-            textBoxClass.DataBindings.Add(new Binding("Text", grvShow.DataSource, "CLASS", true, DataSourceUpdateMode.Never));
-            textBox_data_EPC.DataBindings.Add(new Binding("Text", grvShow.DataSource, "EPC", true, DataSourceUpdateMode.Never));
-            textBox_data_TID.DataBindings.Add(new Binding("Text", grvShow.DataSource, "TID", true, DataSourceUpdateMode.Never));
-            textBox_data_USER.DataBindings.Add(new Binding("Text", grvShow.DataSource, "USER", true, DataSourceUpdateMode.Never));
-            textBox_data_RFU.DataBindings.Add(new Binding("Text", grvShow.DataSource, "RFU", true, DataSourceUpdateMode.Never));
-        }
+        //public void binding()
+        //{
+        //    txbid.DataBindings.Add(new Binding("Text", grvShow.DataSource, "id", true, DataSourceUpdateMode.Never));
+        //    textBoxHsCode.DataBindings.Add(new Binding("Text", grvShow.DataSource, "HS_CODE", true, DataSourceUpdateMode.Never));
+        //    textBoxClass.DataBindings.Add(new Binding("Text", grvShow.DataSource, "CLASS", true, DataSourceUpdateMode.Never));
+        //    textBox_data_EPC.DataBindings.Add(new Binding("Text", grvShow.DataSource, "EPC", true, DataSourceUpdateMode.Never));
+        //    textBox_data_TID.DataBindings.Add(new Binding("Text", grvShow.DataSource, "TID", true, DataSourceUpdateMode.Never));
+        //    textBox_data_USER.DataBindings.Add(new Binding("Text", grvShow.DataSource, "USER", true, DataSourceUpdateMode.Never));
+        //    textBox_data_RFU.DataBindings.Add(new Binding("Text", grvShow.DataSource, "RFU", true, DataSourceUpdateMode.Never));
+        //}
 
         private static TrackingPersonApiConsumer _trackingPersonApiConsumer;
         private static List<StudentInfoResponse> _listStudentsResponse;
@@ -83,7 +83,7 @@ namespace SrDemo
             //var trackingPersonDal = new TrackingPersonPersonDAL();
             grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
 
-            binding();
+            //binding();
 
             string[] ports = SerialPort.GetPortNames();
 
@@ -831,7 +831,7 @@ namespace SrDemo
             Thread.Sleep(1000);
             read_RFU();
             Thread.Sleep(1000);
-            read_USER();
+            //read_USER();
         }
 
         //tid///////////////////////////////////////
@@ -1662,6 +1662,46 @@ namespace SrDemo
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //chưa xử lý
+        }
+
+        private void grvShow_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var row = grvShow.Rows[e.RowIndex];
+                txbid.Text = row.Cells["id"].Value?.ToString();
+                textBoxHsCode.Text = row.Cells["HS_CODE"].Value?.ToString();
+                textBoxClass.Text = row.Cells["CLASS"].Value?.ToString();
+                var epc = row.Cells["EPC"].Value?.ToString();
+                if (!string.IsNullOrEmpty(epc))
+                {
+                    textBox_data_EPC.Text = epc;
+                }
+                textBox_data_USER.Text = row.Cells["USER"].Value?.ToString();
+                //txbid.Text = row.Cells["id"].Value.ToString();
+                //txbid.Text = row.Cells["id"].Value.ToString();
+                //txbid.Text = row.Cells["id"].Value.ToString();
+            }
+        }
+
+        private void grvShow_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var row = grvShow.Rows[e.RowIndex];
+                txbid.Text = row.Cells["id"].Value?.ToString();
+                textBoxHsCode.Text = row.Cells["HS_CODE"].Value?.ToString();
+                textBoxClass.Text = row.Cells["CLASS"].Value?.ToString();
+                var epc = row.Cells["EPC"].Value?.ToString();
+                if (!string.IsNullOrEmpty(epc))
+                {
+                    textBox_data_EPC.Text = epc;
+                }
+                textBox_data_USER.Text = row.Cells["USER"].Value?.ToString();
+                //txbid.Text = row.Cells["id"].Value.ToString();
+                //txbid.Text = row.Cells["id"].Value.ToString();
+                //txbid.Text = row.Cells["id"].Value.ToString();
+            }
         }
 
 
