@@ -17,8 +17,6 @@ namespace SrDemo.Helpers
                     HS_CODE = st.hs_code,
                     CLASS = st.hs_class,
                     EPC = st.card_code,
-                    RFU = string.Empty,
-                    TID = string.Empty,
                     USER = st.hs_name
                 }).OrderBy(_ => _.Id).ToList();
             }

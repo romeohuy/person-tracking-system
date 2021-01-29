@@ -45,6 +45,7 @@
             this.timer_auto = new System.Windows.Forms.Timer(this.components);
             this.tabOp = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.labelClass = new System.Windows.Forms.Label();
             this.textBoxClass = new System.Windows.Forms.TextBox();
             this.labelHsCode = new System.Windows.Forms.Label();
@@ -89,7 +90,9 @@
             this.radioButton_multi = new System.Windows.Forms.RadioButton();
             this.label23 = new System.Windows.Forms.Label();
             this.tabDemo = new System.Windows.Forms.TabControl();
-            this.pbSr = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.gbCOM.SuspendLayout();
             this.tabOp.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -98,7 +101,6 @@
             this.tabScan.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabDemo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSr)).BeginInit();
             this.SuspendLayout();
             // 
             // gbCOM
@@ -209,7 +211,7 @@
             this.listView_oper_log.Margin = new System.Windows.Forms.Padding(4);
             this.listView_oper_log.MultiSelect = false;
             this.listView_oper_log.Name = "listView_oper_log";
-            this.listView_oper_log.Size = new System.Drawing.Size(1058, 130);
+            this.listView_oper_log.Size = new System.Drawing.Size(1058, 113);
             this.listView_oper_log.TabIndex = 1;
             this.listView_oper_log.UseCompatibleStateImageBehavior = false;
             this.listView_oper_log.View = System.Windows.Forms.View.Details;
@@ -253,11 +255,12 @@
             this.tabOp.Padding = new System.Windows.Forms.Padding(4);
             this.tabOp.Size = new System.Drawing.Size(1057, 372);
             this.tabOp.TabIndex = 3;
-            this.tabOp.Text = "Advanced operation";
+            this.tabOp.Text = "Thao tác hàng loạt";
             // 
             // groupBox7
             // 
             this.groupBox7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox7.Controls.Add(this.buttonSearch);
             this.groupBox7.Controls.Add(this.labelClass);
             this.groupBox7.Controls.Add(this.textBoxClass);
             this.groupBox7.Controls.Add(this.labelHsCode);
@@ -291,11 +294,23 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Read/Write ";
             // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonSearch.Location = new System.Drawing.Point(879, 51);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(116, 61);
+            this.buttonSearch.TabIndex = 48;
+            this.buttonSearch.Text = "Tìm HS";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
             // labelClass
             // 
             this.labelClass.AutoSize = true;
             this.labelClass.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelClass.Location = new System.Drawing.Point(473, 58);
+            this.labelClass.Location = new System.Drawing.Point(690, 90);
             this.labelClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelClass.Name = "labelClass";
             this.labelClass.Size = new System.Drawing.Size(50, 15);
@@ -304,7 +319,7 @@
             // 
             // textBoxClass
             // 
-            this.textBoxClass.Location = new System.Drawing.Point(524, 55);
+            this.textBoxClass.Location = new System.Drawing.Point(741, 87);
             this.textBoxClass.Name = "textBoxClass";
             this.textBoxClass.Size = new System.Drawing.Size(119, 23);
             this.textBoxClass.TabIndex = 46;
@@ -313,7 +328,7 @@
             // 
             this.labelHsCode.AutoSize = true;
             this.labelHsCode.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelHsCode.Location = new System.Drawing.Point(200, 59);
+            this.labelHsCode.Location = new System.Drawing.Point(630, 54);
             this.labelHsCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHsCode.Name = "labelHsCode";
             this.labelHsCode.Size = new System.Drawing.Size(104, 15);
@@ -322,21 +337,22 @@
             // 
             // textBoxHsCode
             // 
-            this.textBoxHsCode.Location = new System.Drawing.Point(311, 56);
+            this.textBoxHsCode.Location = new System.Drawing.Point(741, 51);
             this.textBoxHsCode.Name = "textBoxHsCode";
-            this.textBoxHsCode.Size = new System.Drawing.Size(138, 23);
+            this.textBoxHsCode.Size = new System.Drawing.Size(119, 23);
             this.textBoxHsCode.TabIndex = 44;
             // 
             // lbIdHs
             // 
             this.lbIdHs.AutoSize = true;
             this.lbIdHs.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbIdHs.Location = new System.Drawing.Point(18, 59);
+            this.lbIdHs.Location = new System.Drawing.Point(630, 25);
             this.lbIdHs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbIdHs.Name = "lbIdHs";
             this.lbIdHs.Size = new System.Drawing.Size(104, 15);
             this.lbIdHs.TabIndex = 43;
             this.lbIdHs.Text = "ID Học sinh";
+            this.lbIdHs.Visible = false;
             // 
             // groupBoxChonLoai
             // 
@@ -395,10 +411,12 @@
             // 
             // txbid
             // 
-            this.txbid.Location = new System.Drawing.Point(129, 56);
+            this.txbid.Location = new System.Drawing.Point(741, 22);
             this.txbid.Name = "txbid";
+            this.txbid.ReadOnly = true;
             this.txbid.Size = new System.Drawing.Size(53, 23);
             this.txbid.TabIndex = 40;
+            this.txbid.Visible = false;
             // 
             // grvShow
             // 
@@ -415,7 +433,6 @@
             this.grvShow.Size = new System.Drawing.Size(509, 147);
             this.grvShow.TabIndex = 39;
             this.grvShow.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvShow_CellClick);
-            this.grvShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvShow_CellContentClick);
             // 
             // btnshowDB
             // 
@@ -430,7 +447,7 @@
             // 
             // btnSaveDB
             // 
-            this.btnSaveDB.Location = new System.Drawing.Point(252, 254);
+            this.btnSaveDB.Location = new System.Drawing.Point(134, 254);
             this.btnSaveDB.Name = "btnSaveDB";
             this.btnSaveDB.Size = new System.Drawing.Size(75, 53);
             this.btnSaveDB.TabIndex = 37;
@@ -440,11 +457,12 @@
             // 
             // btnclear
             // 
-            this.btnclear.Location = new System.Drawing.Point(154, 255);
+            this.btnclear.ForeColor = System.Drawing.Color.Green;
+            this.btnclear.Location = new System.Drawing.Point(435, 330);
             this.btnclear.Name = "btnclear";
-            this.btnclear.Size = new System.Drawing.Size(75, 52);
+            this.btnclear.Size = new System.Drawing.Size(75, 31);
             this.btnclear.TabIndex = 36;
-            this.btnclear.Text = "Clear";
+            this.btnclear.Text = "Làm mới";
             this.btnclear.UseVisualStyleBackColor = true;
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
@@ -458,102 +476,107 @@
             this.Write_USER.TabIndex = 2;
             this.Write_USER.Text = "Write USER";
             this.Write_USER.UseVisualStyleBackColor = true;
+            this.Write_USER.Visible = false;
             this.Write_USER.Click += new System.EventHandler(this.Write_USER_Click_1);
             // 
             // textBox_data_USER
             // 
             this.textBox_data_USER.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_data_USER.Location = new System.Drawing.Point(94, 133);
+            this.textBox_data_USER.Location = new System.Drawing.Point(146, 83);
             this.textBox_data_USER.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_USER.MaxLength = 64;
             this.textBox_data_USER.Name = "textBox_data_USER";
-            this.textBox_data_USER.Size = new System.Drawing.Size(399, 21);
+            this.textBox_data_USER.Size = new System.Drawing.Size(345, 21);
             this.textBox_data_USER.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(18, 136);
+            this.label9.Location = new System.Drawing.Point(16, 86);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 15);
+            this.label9.Size = new System.Drawing.Size(122, 15);
             this.label9.TabIndex = 35;
-            this.label9.Text = "USER:";
+            this.label9.Text = "Tên học sinh:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(721, 136);
+            this.label12.Location = new System.Drawing.Point(721, 186);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 15);
             this.label12.TabIndex = 29;
             this.label12.Text = "RFU:";
+            this.label12.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(721, 92);
+            this.label6.Location = new System.Drawing.Point(721, 160);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 15);
             this.label6.TabIndex = 29;
             this.label6.Text = "TID:";
+            this.label6.Visible = false;
             // 
             // textBox_data_RFU
             // 
             this.textBox_data_RFU.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_data_RFU.Location = new System.Drawing.Point(784, 133);
+            this.textBox_data_RFU.Location = new System.Drawing.Point(784, 183);
             this.textBox_data_RFU.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_RFU.Name = "textBox_data_RFU";
             this.textBox_data_RFU.ReadOnly = true;
             this.textBox_data_RFU.Size = new System.Drawing.Size(234, 21);
             this.textBox_data_RFU.TabIndex = 5;
+            this.textBox_data_RFU.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(18, 110);
+            this.label5.Location = new System.Drawing.Point(70, 64);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.Size = new System.Drawing.Size(68, 15);
             this.label5.TabIndex = 29;
-            this.label5.Text = "EPC:";
+            this.label5.Text = "Mã thẻ:";
             // 
             // textBox_data_TID
             // 
             this.textBox_data_TID.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_data_TID.Location = new System.Drawing.Point(784, 86);
+            this.textBox_data_TID.Location = new System.Drawing.Point(784, 154);
             this.textBox_data_TID.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_TID.Name = "textBox_data_TID";
             this.textBox_data_TID.ReadOnly = true;
             this.textBox_data_TID.Size = new System.Drawing.Size(234, 21);
             this.textBox_data_TID.TabIndex = 28;
+            this.textBox_data_TID.Visible = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(373, 20);
+            this.label16.Location = new System.Drawing.Point(293, 20);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(280, 23);
+            this.label16.Size = new System.Drawing.Size(249, 23);
             this.label16.TabIndex = 33;
-            this.label16.Text = "FOUR CARD MEMORY AREA";
+            this.label16.Text = "PHẦN MỀM GHI THẺ SSC";
             // 
             // textBox_data_EPC
             // 
             this.textBox_data_EPC.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_data_EPC.Location = new System.Drawing.Point(94, 109);
+            this.textBox_data_EPC.Location = new System.Drawing.Point(146, 59);
             this.textBox_data_EPC.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_EPC.MaxLength = 24;
             this.textBox_data_EPC.Name = "textBox_data_EPC";
-            this.textBox_data_EPC.Size = new System.Drawing.Size(221, 21);
+            this.textBox_data_EPC.Size = new System.Drawing.Size(167, 21);
             this.textBox_data_EPC.TabIndex = 3;
             // 
             // Write_EPC
@@ -566,6 +589,7 @@
             this.Write_EPC.TabIndex = 4;
             this.Write_EPC.Text = "Write EPC";
             this.Write_EPC.UseVisualStyleBackColor = true;
+            this.Write_EPC.Visible = false;
             this.Write_EPC.Click += new System.EventHandler(this.Write_EPC_Click);
             // 
             // button_data_read
@@ -576,7 +600,7 @@
             this.button_data_read.Name = "button_data_read";
             this.button_data_read.Size = new System.Drawing.Size(110, 52);
             this.button_data_read.TabIndex = 22;
-            this.button_data_read.Text = "Read";
+            this.button_data_read.Text = "Đọc thẻ";
             this.button_data_read.UseVisualStyleBackColor = true;
             this.button_data_read.Click += new System.EventHandler(this.button_data_read_Click);
             // 
@@ -600,7 +624,7 @@
             this.tabScan.Padding = new System.Windows.Forms.Padding(4);
             this.tabScan.Size = new System.Drawing.Size(1057, 372);
             this.tabScan.TabIndex = 2;
-            this.tabScan.Text = "Tags Query";
+            this.tabScan.Text = "Thao tác thẻ";
             // 
             // button_clear
             // 
@@ -790,16 +814,37 @@
             this.tabDemo.Size = new System.Drawing.Size(1065, 400);
             this.tabDemo.TabIndex = 0;
             // 
-            // pbSr
+            // label3
             // 
-            this.pbSr.Image = ((System.Drawing.Image)(resources.GetObject("pbSr.Image")));
-            this.pbSr.Location = new System.Drawing.Point(1, 1);
-            this.pbSr.Margin = new System.Windows.Forms.Padding(4);
-            this.pbSr.Name = "pbSr";
-            this.pbSr.Size = new System.Drawing.Size(197, 86);
-            this.pbSr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSr.TabIndex = 1;
-            this.pbSr.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 21);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Trường:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkRed;
+            this.label4.Location = new System.Drawing.Point(1, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(195, 20);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "NGUYỄN ĐÌNH CHIỂU";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Brown;
+            this.label7.Location = new System.Drawing.Point(13, 525);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(312, 16);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "© SSC Điểm danh 2021 TriAnh Solutions version 3.0";
             // 
             // SrDemo
             // 
@@ -807,12 +852,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1275, 550);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.listView_oper_log);
             this.Controls.Add(this.label_firmware_version);
             this.Controls.Add(this.label_hardware_version);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.gbCOM);
-            this.Controls.Add(this.pbSr);
             this.Controls.Add(this.tabDemo);
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -821,7 +868,7 @@
             this.MaximizeBox = false;
             this.Name = "SrDemo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ATD TECH UHF READER";
+            this.Text = "SSC Điểm Danh Học Đường";
             this.Load += new System.EventHandler(this.SrDemo_Load);
             this.gbCOM.ResumeLayout(false);
             this.gbCOM.PerformLayout();
@@ -836,7 +883,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabDemo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbSr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -877,7 +923,6 @@
         private System.Windows.Forms.RadioButton radioButton_multi;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabControl tabDemo;
-        private System.Windows.Forms.PictureBox pbSr;
         private System.Windows.Forms.TextBox textBox_data_EPC;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
@@ -904,6 +949,10 @@
         private System.Windows.Forms.Label lbIdHs;
         private System.Windows.Forms.Label labelClass;
         private System.Windows.Forms.TextBox textBoxClass;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -1,13 +1,20 @@
-﻿namespace TrackPerson.DAL.Entities
+﻿using System.ComponentModel;
+
+namespace TrackPerson.DAL.Entities
 {
    public class TrackingPerson
     {
+        [DisplayName("STT")]
         public int Id { get; set; }
+        [DisplayName("Mã HS")]
         public string HS_CODE { get; set; }
-        public string CLASS { get; set; }
-        public string EPC { get; set; }
-        public string TID { get; set; }
+        [DisplayName("Tên HS")]
         public string USER { get; set; }
-        public string RFU { get; set; }
+        [DisplayName("Lớp")]
+        public string CLASS { get; set; }
+        [DisplayName("Mã HS")]
+        public string EPC { get; set; }
+        //public string TID { get; set; }
+        //public string RFU { get; set; }
     }
 }

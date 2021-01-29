@@ -39,7 +39,7 @@ namespace TrackPerson.Service
             }
         }
 
-        public List<StudentInfoResponse> GetListStudents()
+        public List<StudentInfoResponse> GetListStudents(string hs_code = null,string hs_class = null,string hs_name = null)
         {
             var listStudents = new List<StudentInfoResponse>();
             var token = GetToken();
@@ -47,9 +47,10 @@ namespace TrackPerson.Service
             {
                 var client = new RestClient();
                 var page = 1;
+                var queryStringParam = $"hs_code={hs_code}&hs_class={hs_class}&hs_name={hs_name}";
                 while (true)
                 {
-                     var request = new RestRequest(new Uri(Path.Combine(_rootApi, $"customer-child?page={page}")), Method.GET);
+                     var request = new RestRequest(new Uri(Path.Combine(_rootApi, $"customer-child?page={page}&{queryStringParam}")), Method.GET);
                     request.AddHeader("Authorization", $"Bearer {token}");
                     try
                     {

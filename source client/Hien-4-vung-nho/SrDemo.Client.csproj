@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="global.cs" />
     <Compile Include="Helpers\ModelHelper.cs" />
+    <Compile Include="Helpers\TypeTextChangeHelper.cs" />
     <Compile Include="SrDemo.cs">
       <SubType>Form</SubType>
     </Compile>

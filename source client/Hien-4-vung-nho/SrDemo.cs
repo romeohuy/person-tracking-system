@@ -63,6 +63,8 @@ namespace SrDemo
 
         private static TrackingPersonApiConsumer _trackingPersonApiConsumer;
         private static List<StudentInfoResponse> _listStudentsResponse;
+
+        private TypeTextChangeHelper _typeTextChangeHelper;
         public SrDemo()
         {
             InitializeComponent();
@@ -91,6 +93,11 @@ namespace SrDemo
             foreach (string port in ports)
             {
                 cbCOM.Items.Add(port);
+            }
+
+            if (ports.Length > 0)
+            {
+                cbCOM.SelectedIndex = 0;
             }
             cbBaute.SelectedIndex = 4;       // 115200
 
@@ -515,8 +522,8 @@ namespace SrDemo
                             if (OPER_OK == ret)
                             {
 
-                                DialogResult information = MessageBox.Show("Connected", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                UpdateLog("Open Com successfull");//Open Com successful");打开串口成功！
+                                DialogResult information = MessageBox.Show("Kết nối thành công", "Thông báo kết nối", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                UpdateLog("Kết nối thành công");//Open Com successful");打开串口成功！
                                 cbCOM.Enabled = false;
                                 cbBaute.Enabled = false;
 
@@ -525,7 +532,7 @@ namespace SrDemo
                             else
                             {
 
-                                DialogResult warning = MessageBox.Show("Wrong port, please choose again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                DialogResult warning = MessageBox.Show(@"Bạn chưa kết nối thiết bị đọc thẻ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 UpdateLog("Open Com fail");//Open Com fail");打开串口失败！
                                 cbCOM.Enabled = true;
                                 cbBaute.Enabled = true;
@@ -1525,7 +1532,7 @@ namespace SrDemo
 
         private void SrDemo_Load(object sender, EventArgs e)
         {
-
+            btnConnect_Click(sender,e);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -1579,8 +1586,7 @@ namespace SrDemo
         {
             //string sql = "select id, EPC, TID, USER_ as [USER], RFU from UHF_Desktop";
             //var trackingPersonDal = new TrackingPersonPersonDAL();
-            var trackingApi = new TrackingPersonApiConsumer();
-            _listStudentsResponse = trackingApi.GetListStudents();
+            _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
             grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
         }
 
@@ -1602,11 +1608,10 @@ namespace SrDemo
             DialogResult result = MessageBox.Show("Bạn có chắc chắn thực hiện?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                var trackingApi = new TrackingPersonApiConsumer();
                 int.TryParse(txbid.Text, out int hs_id);
                 if (radioButtonRegistStudent.Checked)
                 {
-                    var response = trackingApi.PutRegisterStudentCard(textBoxHsCode.Text, textBox_data_USER.Text, textBox_data_EPC.Text.Trim(), textBoxClass.Text);
+                    var response = _trackingPersonApiConsumer.PutRegisterStudentCard(textBoxHsCode.Text, textBox_data_USER.Text, textBox_data_EPC.Text.Trim(), textBoxClass.Text);
                     if (response.result)
                     {
                         MessageBox.Show($"Đăng ký thẻ cho học sinh {textBox_data_USER.Text} thành công!");
@@ -1625,7 +1630,7 @@ namespace SrDemo
                         return;
                     }
 
-                    var response = trackingApi.XinVeSom(textBox_data_EPC.Text);
+                    var response = _trackingPersonApiConsumer.XinVeSom(textBox_data_EPC.Text);
                     if (response.result)
                     {
                         MessageBox.Show($"Đã ghi nhận học sinh {textBox_data_USER.Text} về sớm.");
@@ -1643,7 +1648,7 @@ namespace SrDemo
                         return;
                     }
 
-                    var response = trackingApi.XinVoTre(textBox_data_EPC.Text);
+                    var response = _trackingPersonApiConsumer.XinVoTre(textBox_data_EPC.Text);
                     if (response.result)
                     {
                         MessageBox.Show($"Đã ghi nhận học sinh {textBox_data_USER.Text} vào lớp trễ.");
@@ -1653,7 +1658,7 @@ namespace SrDemo
                         MessageBox.Show(response.message, "Lỗi api", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                _listStudentsResponse = trackingApi.GetListStudents();
+                _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
                 grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
             }
             ClearData();
@@ -1662,26 +1667,6 @@ namespace SrDemo
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //chưa xử lý
-        }
-
-        private void grvShow_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                var row = grvShow.Rows[e.RowIndex];
-                txbid.Text = row.Cells["id"].Value?.ToString();
-                textBoxHsCode.Text = row.Cells["HS_CODE"].Value?.ToString();
-                textBoxClass.Text = row.Cells["CLASS"].Value?.ToString();
-                var epc = row.Cells["EPC"].Value?.ToString();
-                if (!string.IsNullOrEmpty(epc))
-                {
-                    textBox_data_EPC.Text = epc;
-                }
-                textBox_data_USER.Text = row.Cells["USER"].Value?.ToString();
-                //txbid.Text = row.Cells["id"].Value.ToString();
-                //txbid.Text = row.Cells["id"].Value.ToString();
-                //txbid.Text = row.Cells["id"].Value.ToString();
-            }
         }
 
         private void grvShow_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1698,15 +1683,14 @@ namespace SrDemo
                     textBox_data_EPC.Text = epc;
                 }
                 textBox_data_USER.Text = row.Cells["USER"].Value?.ToString();
-                //txbid.Text = row.Cells["id"].Value.ToString();
-                //txbid.Text = row.Cells["id"].Value.ToString();
-                //txbid.Text = row.Cells["id"].Value.ToString();
             }
         }
 
-
-
-
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents(hs_code:textBoxHsCode.Text.Trim(), hs_class:textBoxClass.Text.Trim(),hs_name: textBox_data_USER.Text.Trim());
+            grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
+        }
 
         //----------------------------------------------------------------------------------------------------------------------------------
 
