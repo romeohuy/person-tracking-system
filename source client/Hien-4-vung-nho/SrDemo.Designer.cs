@@ -111,13 +111,12 @@
             this.gbCOM.Controls.Add(this.label1);
             this.gbCOM.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCOM.Location = new System.Drawing.Point(13, 116);
-            this.gbCOM.Margin = new System.Windows.Forms.Padding(4);
+            this.gbCOM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbCOM.Name = "gbCOM";
-            this.gbCOM.Padding = new System.Windows.Forms.Padding(4);
+            this.gbCOM.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbCOM.Size = new System.Drawing.Size(178, 100);
             this.gbCOM.TabIndex = 14;
             this.gbCOM.TabStop = false;
-            this.gbCOM.Text = "COM";
             // 
             // cbBaute
             // 
@@ -130,7 +129,7 @@
             "57600",
             "115200"});
             this.cbBaute.Location = new System.Drawing.Point(76, 59);
-            this.cbBaute.Margin = new System.Windows.Forms.Padding(4);
+            this.cbBaute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbBaute.Name = "cbBaute";
             this.cbBaute.Size = new System.Drawing.Size(81, 24);
             this.cbBaute.TabIndex = 17;
@@ -150,7 +149,7 @@
             this.cbCOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCOM.FormattingEnabled = true;
             this.cbCOM.Location = new System.Drawing.Point(76, 25);
-            this.cbCOM.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCOM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbCOM.Name = "cbCOM";
             this.cbCOM.Size = new System.Drawing.Size(81, 24);
             this.cbCOM.TabIndex = 15;
@@ -169,7 +168,7 @@
             // 
             this.btnConnect.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.Location = new System.Drawing.Point(54, 224);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(81, 37);
             this.btnConnect.TabIndex = 16;
@@ -208,7 +207,7 @@
             this.listView_oper_log.HideSelection = false;
             this.listView_oper_log.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView_oper_log.Location = new System.Drawing.Point(204, 407);
-            this.listView_oper_log.Margin = new System.Windows.Forms.Padding(4);
+            this.listView_oper_log.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView_oper_log.MultiSelect = false;
             this.listView_oper_log.Name = "listView_oper_log";
             this.listView_oper_log.Size = new System.Drawing.Size(1058, 113);
@@ -250,9 +249,9 @@
             this.tabOp.Controls.Add(this.groupBox7);
             this.tabOp.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabOp.Location = new System.Drawing.Point(4, 24);
-            this.tabOp.Margin = new System.Windows.Forms.Padding(4);
+            this.tabOp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabOp.Name = "tabOp";
-            this.tabOp.Padding = new System.Windows.Forms.Padding(4);
+            this.tabOp.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabOp.Size = new System.Drawing.Size(1057, 372);
             this.tabOp.TabIndex = 3;
             this.tabOp.Text = "Thao tác hàng loạt";
@@ -286,19 +285,18 @@
             this.groupBox7.Controls.Add(this.Write_EPC);
             this.groupBox7.Controls.Add(this.button_data_read);
             this.groupBox7.Location = new System.Drawing.Point(4, 8);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox7.Size = new System.Drawing.Size(1051, 368);
             this.groupBox7.TabIndex = 12;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Read/Write ";
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearch.Location = new System.Drawing.Point(879, 51);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(116, 61);
             this.buttonSearch.TabIndex = 48;
@@ -309,11 +307,11 @@
             // labelClass
             // 
             this.labelClass.AutoSize = true;
-            this.labelClass.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelClass.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClass.Location = new System.Drawing.Point(690, 90);
             this.labelClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelClass.Name = "labelClass";
-            this.labelClass.Size = new System.Drawing.Size(50, 15);
+            this.labelClass.Size = new System.Drawing.Size(43, 17);
             this.labelClass.TabIndex = 47;
             this.labelClass.Text = "Lớp: ";
             // 
@@ -327,13 +325,13 @@
             // labelHsCode
             // 
             this.labelHsCode.AutoSize = true;
-            this.labelHsCode.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelHsCode.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHsCode.Location = new System.Drawing.Point(630, 54);
             this.labelHsCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHsCode.Name = "labelHsCode";
-            this.labelHsCode.Size = new System.Drawing.Size(104, 15);
+            this.labelHsCode.Size = new System.Drawing.Size(97, 17);
             this.labelHsCode.TabIndex = 45;
-            this.labelHsCode.Text = "Mã Học sinh";
+            this.labelHsCode.Text = "Mã Học sinh:";
             // 
             // textBoxHsCode
             // 
@@ -345,13 +343,13 @@
             // lbIdHs
             // 
             this.lbIdHs.AutoSize = true;
-            this.lbIdHs.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbIdHs.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdHs.Location = new System.Drawing.Point(630, 25);
             this.lbIdHs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbIdHs.Name = "lbIdHs";
-            this.lbIdHs.Size = new System.Drawing.Size(104, 15);
+            this.lbIdHs.Size = new System.Drawing.Size(92, 17);
             this.lbIdHs.TabIndex = 43;
-            this.lbIdHs.Text = "ID Học sinh";
+            this.lbIdHs.Text = "ID Học sinh:";
             this.lbIdHs.Visible = false;
             // 
             // groupBoxChonLoai
@@ -428,6 +426,7 @@
             this.grvShow.Location = new System.Drawing.Point(535, 210);
             this.grvShow.MultiSelect = false;
             this.grvShow.Name = "grvShow";
+            this.grvShow.ReadOnly = true;
             this.grvShow.RowHeadersWidth = 51;
             this.grvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvShow.Size = new System.Drawing.Size(509, 147);
@@ -470,7 +469,7 @@
             // 
             this.Write_USER.Font = new System.Drawing.Font("SimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Write_USER.Location = new System.Drawing.Point(507, 131);
-            this.Write_USER.Margin = new System.Windows.Forms.Padding(4);
+            this.Write_USER.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Write_USER.Name = "Write_USER";
             this.Write_USER.Size = new System.Drawing.Size(112, 27);
             this.Write_USER.TabIndex = 2;
@@ -483,7 +482,7 @@
             // 
             this.textBox_data_USER.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_data_USER.Location = new System.Drawing.Point(146, 83);
-            this.textBox_data_USER.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_data_USER.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_data_USER.MaxLength = 64;
             this.textBox_data_USER.Name = "textBox_data_USER";
             this.textBox_data_USER.Size = new System.Drawing.Size(345, 21);
@@ -492,11 +491,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(16, 86);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 15);
+            this.label9.Size = new System.Drawing.Size(97, 17);
             this.label9.TabIndex = 35;
             this.label9.Text = "Tên học sinh:";
             // 
@@ -528,7 +527,7 @@
             // 
             this.textBox_data_RFU.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_data_RFU.Location = new System.Drawing.Point(784, 183);
-            this.textBox_data_RFU.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_data_RFU.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_data_RFU.Name = "textBox_data_RFU";
             this.textBox_data_RFU.ReadOnly = true;
             this.textBox_data_RFU.Size = new System.Drawing.Size(234, 21);
@@ -538,11 +537,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("SimSun", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(70, 64);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 15);
+            this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 29;
             this.label5.Text = "Mã thẻ:";
             // 
@@ -550,7 +549,7 @@
             // 
             this.textBox_data_TID.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_data_TID.Location = new System.Drawing.Point(784, 154);
-            this.textBox_data_TID.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_data_TID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_data_TID.Name = "textBox_data_TID";
             this.textBox_data_TID.ReadOnly = true;
             this.textBox_data_TID.Size = new System.Drawing.Size(234, 21);
@@ -562,7 +561,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(293, 20);
+            this.label16.Location = new System.Drawing.Point(384, 17);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(249, 23);
@@ -573,7 +572,7 @@
             // 
             this.textBox_data_EPC.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_data_EPC.Location = new System.Drawing.Point(146, 59);
-            this.textBox_data_EPC.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_data_EPC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_data_EPC.MaxLength = 24;
             this.textBox_data_EPC.Name = "textBox_data_EPC";
             this.textBox_data_EPC.Size = new System.Drawing.Size(167, 21);
@@ -583,7 +582,7 @@
             // 
             this.Write_EPC.Font = new System.Drawing.Font("SimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Write_EPC.Location = new System.Drawing.Point(507, 85);
-            this.Write_EPC.Margin = new System.Windows.Forms.Padding(4);
+            this.Write_EPC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Write_EPC.Name = "Write_EPC";
             this.Write_EPC.Size = new System.Drawing.Size(112, 27);
             this.Write_EPC.TabIndex = 4;
@@ -594,9 +593,9 @@
             // 
             // button_data_read
             // 
-            this.button_data_read.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_data_read.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_data_read.Location = new System.Drawing.Point(17, 255);
-            this.button_data_read.Margin = new System.Windows.Forms.Padding(4);
+            this.button_data_read.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_data_read.Name = "button_data_read";
             this.button_data_read.Size = new System.Drawing.Size(110, 52);
             this.button_data_read.TabIndex = 22;
@@ -619,9 +618,9 @@
             this.tabScan.Controls.Add(this.label23);
             this.tabScan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabScan.Location = new System.Drawing.Point(4, 24);
-            this.tabScan.Margin = new System.Windows.Forms.Padding(4);
+            this.tabScan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabScan.Name = "tabScan";
-            this.tabScan.Padding = new System.Windows.Forms.Padding(4);
+            this.tabScan.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabScan.Size = new System.Drawing.Size(1057, 372);
             this.tabScan.TabIndex = 2;
             this.tabScan.Text = "Thao tác thẻ";
@@ -629,7 +628,7 @@
             // button_clear
             // 
             this.button_clear.Location = new System.Drawing.Point(684, 76);
-            this.button_clear.Margin = new System.Windows.Forms.Padding(4);
+            this.button_clear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(90, 37);
             this.button_clear.TabIndex = 42;
@@ -644,7 +643,7 @@
             this.listView_label.GridLines = true;
             this.listView_label.HideSelection = false;
             this.listView_label.Location = new System.Drawing.Point(4, 120);
-            this.listView_label.Margin = new System.Windows.Forms.Padding(4);
+            this.listView_label.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView_label.Name = "listView_label";
             this.listView_label.Size = new System.Drawing.Size(1048, 205);
             this.listView_label.TabIndex = 2;
@@ -655,7 +654,7 @@
             // button_query
             // 
             this.button_query.Location = new System.Drawing.Point(566, 76);
-            this.button_query.Margin = new System.Windows.Forms.Padding(4);
+            this.button_query.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_query.Name = "button_query";
             this.button_query.Size = new System.Drawing.Size(90, 37);
             this.button_query.TabIndex = 41;
@@ -728,9 +727,9 @@
             this.groupBox2.Controls.Add(this.radioButton_single);
             this.groupBox2.Controls.Add(this.radioButton_multi);
             this.groupBox2.Location = new System.Drawing.Point(4, 8);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Size = new System.Drawing.Size(1047, 57);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
@@ -739,7 +738,7 @@
             // textBox_multi_time
             // 
             this.textBox_multi_time.Location = new System.Drawing.Point(565, 19);
-            this.textBox_multi_time.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_multi_time.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_multi_time.MaxLength = 9;
             this.textBox_multi_time.Name = "textBox_multi_time";
             this.textBox_multi_time.Size = new System.Drawing.Size(74, 23);
@@ -772,7 +771,7 @@
             // 
             this.radioButton_single.AutoSize = true;
             this.radioButton_single.Location = new System.Drawing.Point(98, 23);
-            this.radioButton_single.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton_single.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_single.Name = "radioButton_single";
             this.radioButton_single.Size = new System.Drawing.Size(60, 20);
             this.radioButton_single.TabIndex = 39;
@@ -784,7 +783,7 @@
             this.radioButton_multi.AutoSize = true;
             this.radioButton_multi.Checked = true;
             this.radioButton_multi.Location = new System.Drawing.Point(255, 24);
-            this.radioButton_multi.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton_multi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_multi.Name = "radioButton_multi";
             this.radioButton_multi.Size = new System.Drawing.Size(47, 20);
             this.radioButton_multi.TabIndex = 39;
@@ -808,7 +807,7 @@
             this.tabDemo.Controls.Add(this.tabOp);
             this.tabDemo.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDemo.Location = new System.Drawing.Point(199, -1);
-            this.tabDemo.Margin = new System.Windows.Forms.Padding(4);
+            this.tabDemo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabDemo.Name = "tabDemo";
             this.tabDemo.SelectedIndex = 0;
             this.tabDemo.Size = new System.Drawing.Size(1065, 400);
@@ -861,10 +860,10 @@
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.gbCOM);
             this.Controls.Add(this.tabDemo);
-            this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "SrDemo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

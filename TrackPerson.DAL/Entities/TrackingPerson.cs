@@ -12,7 +12,7 @@ namespace TrackPerson.DAL.Entities
         public string USER { get; set; }
         [DisplayName("Lớp")]
         public string CLASS { get; set; }
-        [DisplayName("Mã HS")]
+        [DisplayName("Mã Thẻ")]
         public string EPC { get; set; }
         //public string TID { get; set; }
         //public string RFU { get; set; }

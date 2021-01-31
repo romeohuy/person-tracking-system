@@ -71,19 +71,19 @@ namespace SrDemo
 
             _trackingPersonApiConsumer = new TrackingPersonApiConsumer();
 
-            try
-            {
-                _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
             grvShow.DataSource = sourcebinding;
 
             //var trackingPersonDal = new TrackingPersonPersonDAL();
-            grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
+            //grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
 
             //binding();
 
@@ -1532,7 +1532,7 @@ namespace SrDemo
 
         private void SrDemo_Load(object sender, EventArgs e)
         {
-            btnConnect_Click(sender,e);
+            //btnConnect_Click(sender,e);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -1578,6 +1578,7 @@ namespace SrDemo
             textBoxClass.Text = "";
             textBoxHsCode.Text = "";
             radioButtonRegistStudent.Checked = true;
+            grvShow.DataSource = ModelHelper.ToTrackingPersons(new List<StudentInfoResponse>());
             grvShow.Update();
             grvShow.Refresh();
         }
@@ -1688,7 +1689,17 @@ namespace SrDemo
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            if (textBoxHsCode.Text.Trim() == string.Empty && textBoxClass.Text.Trim() == string.Empty &&  textBox_data_USER.Text.Trim()== string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập thông tin tìm kiếm học sinh.", "Yêu cầu tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxHsCode.Focus();
+                return;
+            }
             _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents(hs_code:textBoxHsCode.Text.Trim(), hs_class:textBoxClass.Text.Trim(),hs_name: textBox_data_USER.Text.Trim());
+            if (_listStudentsResponse.Count == 0)
+            {
+                MessageBox.Show("Học sinh cần tìm không tồn tại trong hệ thống.");
+            }
             grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
         }
 
