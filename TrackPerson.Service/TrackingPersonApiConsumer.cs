@@ -39,7 +39,7 @@ namespace TrackPerson.Service
             }
         }
 
-        public List<StudentInfoResponse> GetListStudents(string hs_code = null,string hs_class = null,string hs_name = null)
+        public List<StudentInfoResponse> GetListStudents(string hs_code = null,string hs_id_class = null,string hs_name = null)
         {
             var listStudents = new List<StudentInfoResponse>();
             var token = GetToken();
@@ -47,7 +47,7 @@ namespace TrackPerson.Service
             {
                 var client = new RestClient();
                 var page = 1;
-                var queryStringParam = $"hs_code={hs_code}&hs_class={hs_class}&hs_name={hs_name}";
+                var queryStringParam = $"hs_code={hs_code}&hs_id_class={hs_id_class}&hs_name={hs_name}";
                 while (true)
                 {
                      var request = new RestRequest(new Uri(Path.Combine(_rootApi, $"customer-child?page={page}&{queryStringParam}")), Method.GET);
@@ -79,6 +79,48 @@ namespace TrackPerson.Service
             _logger.Error("Token trống");
             return new List<StudentInfoResponse>();
         }
+
+
+        public List<ClassInfo> GetClasses()
+        {
+            var listClass = new List<ClassInfo>();
+            var token = GetToken();
+            if (!string.IsNullOrEmpty(token))
+            {
+                var client = new RestClient();
+                var page = 1;
+                while (true)
+                {
+                    var request = new RestRequest(new Uri(Path.Combine(_rootApi, $"class?page={page}")), Method.GET);
+                    request.AddHeader("Authorization", $"Bearer {token}");
+                    try
+                    {
+                        var result = client.Execute<ListClassResponse>(request);
+                        if (result.IsSuccessful)
+                        {
+                            _logger.Info($"Get class page {page}: {JsonConvert.SerializeObject(request)}");
+                            listClass.AddRange(result.Data.data);
+                        }
+                        if (string.IsNullOrEmpty(result.Data.meta.next))
+                        {
+                            break;
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
+                    page++;
+                }
+                _logger.Info($"Get students api: Count {listClass.Count}");
+                return listClass;
+            }
+
+            _logger.Error("Token trống");
+            return new List<ClassInfo>();
+        }
+
         public BaseApiResponse PutRegisterStudentCard(string hs_code, string hs_name, string card_code, string hs_class)
         {
             var token = GetToken();

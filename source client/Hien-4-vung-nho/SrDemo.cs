@@ -1,6 +1,7 @@
 ﻿using SrDemo.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.IO.Ports;
 using System.Linq; //SerialPort
@@ -71,6 +72,14 @@ namespace SrDemo
 
             _trackingPersonApiConsumer = new TrackingPersonApiConsumer();
 
+            var classes = _trackingPersonApiConsumer.GetClasses();
+            if (classes.Any())
+            {
+                classes.Insert(0, new ClassInfo(){class_id = string.Empty, class_name = string.Empty});
+                comboBoxClass.DataSource = classes;
+                comboBoxClass.ValueMember = "class_id";
+                comboBoxClass.DisplayMember = "class_name";
+            }
             //try
             //{
             //    _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
@@ -1533,6 +1542,7 @@ namespace SrDemo
         private void SrDemo_Load(object sender, EventArgs e)
         {
             //btnConnect_Click(sender,e);
+            this.labelSchoolName.Text = ConfigurationManager.AppSettings["SchoolName"];
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -1575,7 +1585,7 @@ namespace SrDemo
             textBox_data_RFU.Text = "";
             textBox_data_TID.Text = "";
             textBox_data_USER.Text = "";
-            textBoxClass.Text = "";
+            comboBoxClass.SelectedIndex = 0;
             textBoxHsCode.Text = "";
             radioButtonRegistStudent.Checked = true;
             grvShow.DataSource = ModelHelper.ToTrackingPersons(new List<StudentInfoResponse>());
@@ -1612,7 +1622,7 @@ namespace SrDemo
                 int.TryParse(txbid.Text, out int hs_id);
                 if (radioButtonRegistStudent.Checked)
                 {
-                    var response = _trackingPersonApiConsumer.PutRegisterStudentCard(textBoxHsCode.Text, textBox_data_USER.Text, textBox_data_EPC.Text.Trim(), textBoxClass.Text);
+                    var response = _trackingPersonApiConsumer.PutRegisterStudentCard(textBoxHsCode.Text, textBox_data_USER.Text, textBox_data_EPC.Text.Trim(), comboBoxClass.SelectedValue.ToString());
                     if (response.result)
                     {
                         MessageBox.Show($"Đăng ký thẻ cho học sinh {textBox_data_USER.Text} thành công!");
@@ -1659,8 +1669,8 @@ namespace SrDemo
                         MessageBox.Show(response.message, "Lỗi api", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
-                grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
+                //_listStudentsResponse = _trackingPersonApiConsumer.GetListStudents();
+                //grvShow.DataSource = ModelHelper.ToTrackingPersons(_listStudentsResponse);
             }
             ClearData();
         }
@@ -1677,7 +1687,15 @@ namespace SrDemo
                 var row = grvShow.Rows[e.RowIndex];
                 txbid.Text = row.Cells["id"].Value?.ToString();
                 textBoxHsCode.Text = row.Cells["HS_CODE"].Value?.ToString();
-                textBoxClass.Text = row.Cells["CLASS"].Value?.ToString();
+                var hsClass = row.Cells["CLASS"].Value?.ToString();
+                if (!string.IsNullOrEmpty(hsClass))
+                {
+                    comboBoxClass.Text = hsClass;
+                }
+                else
+                {
+                    comboBoxClass.SelectedIndex = 0;
+                }
                 var epc = row.Cells["EPC"].Value?.ToString();
                 if (!string.IsNullOrEmpty(epc))
                 {
@@ -1689,13 +1707,13 @@ namespace SrDemo
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            if (textBoxHsCode.Text.Trim() == string.Empty && textBoxClass.Text.Trim() == string.Empty &&  textBox_data_USER.Text.Trim()== string.Empty)
+            if (textBoxHsCode.Text.Trim() == string.Empty && comboBoxClass.SelectedIndex == 0 &&  textBox_data_USER.Text.Trim()== string.Empty)
             {
                 MessageBox.Show("Vui lòng nhập thông tin tìm kiếm học sinh.", "Yêu cầu tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxHsCode.Focus();
                 return;
             }
-            _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents(hs_code:textBoxHsCode.Text.Trim(), hs_class:textBoxClass.Text.Trim(),hs_name: textBox_data_USER.Text.Trim());
+            _listStudentsResponse = _trackingPersonApiConsumer.GetListStudents(hs_code:textBoxHsCode.Text.Trim(), hs_id_class:comboBoxClass.SelectedValue.ToString(),hs_name: textBox_data_USER.Text.Trim());
             if (_listStudentsResponse.Count == 0)
             {
                 MessageBox.Show("Học sinh cần tìm không tồn tại trong hệ thống.");
