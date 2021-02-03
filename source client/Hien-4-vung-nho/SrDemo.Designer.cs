@@ -474,7 +474,7 @@
             // textBox_data_USER
             // 
             this.textBox_data_USER.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_data_USER.Location = new System.Drawing.Point(146, 83);
+            this.textBox_data_USER.Location = new System.Drawing.Point(146, 91);
             this.textBox_data_USER.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_data_USER.MaxLength = 64;
             this.textBox_data_USER.Name = "textBox_data_USER";
@@ -485,7 +485,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(16, 86);
+            this.label9.Location = new System.Drawing.Point(16, 94);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 17);
