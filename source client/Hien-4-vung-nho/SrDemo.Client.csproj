@@ -34,6 +34,7 @@
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <LangVersion>5</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -74,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\TrackingPerson.cs" />
     <Compile Include="global.cs" />
     <Compile Include="Helpers\ModelHelper.cs" />
     <Compile Include="Helpers\TypeTextChangeHelper.cs" />
@@ -156,10 +158,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TrackPerson.DAL\TrackPerson.DAL.csproj">
-      <Project>{0fc945e9-1573-46ec-9f2f-a1343dc1943c}</Project>
-      <Name>TrackPerson.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\TrackPerson.Service\TrackPerson.Service.csproj">
       <Project>{4f1c1a40-419c-459c-93af-a3d3801e1481}</Project>
       <Name>TrackPerson.Service</Name>

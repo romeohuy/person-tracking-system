@@ -965,7 +965,7 @@ namespace SrDemo
                 {
                     foreach (DataGridViewRow row in grvShow.Rows)
                     {
-                        if (row.Cells["EPC"].Value != null && row.Cells["EPC"].Value.ToString().ToLower().Equals(textBox_data_EPC.Text?.ToLower()))
+                        if (row.Cells["EPC"].Value != null && row.Cells["EPC"].Value.ToString().ToLower().Equals(textBox_data_EPC.Text.ToLower()))
                         {
                             row.Selected = true; break;
                         }
@@ -1613,19 +1613,18 @@ namespace SrDemo
             //});
             if (string.IsNullOrEmpty(textBox_data_EPC.Text))
             {
-                MessageBox.Show($"Giá trị EPC không hợp lệ","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Giá trị EPC không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             DialogResult result = MessageBox.Show("Bạn có chắc chắn thực hiện?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                int.TryParse(txbid.Text, out int hs_id);
                 if (radioButtonRegistStudent.Checked)
                 {
                     var response = _trackingPersonApiConsumer.PutRegisterStudentCard(textBoxHsCode.Text, textBox_data_USER.Text, textBox_data_EPC.Text.Trim(), comboBoxClass.SelectedValue.ToString());
                     if (response.result)
                     {
-                        MessageBox.Show($"Đăng ký thẻ cho học sinh {textBox_data_USER.Text} thành công!");
+                        MessageBox.Show(string.Format("Đăng ký thẻ cho học sinh {0} thành công!", textBox_data_USER.Text));
                     }
                     else
                     {
@@ -1637,14 +1636,14 @@ namespace SrDemo
                 {
                     if (!_listStudentsResponse.Any(_=>_.card_code!= null && _.card_code.Equals(textBox_data_EPC.Text)))
                     {
-                        MessageBox.Show($"Thẻ chưa được đăng ký!");
+                        MessageBox.Show("Thẻ chưa được đăng ký!");
                         return;
                     }
 
                     var response = _trackingPersonApiConsumer.XinVeSom(textBox_data_EPC.Text);
                     if (response.result)
                     {
-                        MessageBox.Show($"Đã ghi nhận học sinh {textBox_data_USER.Text} về sớm.");
+                        MessageBox.Show(string.Format("Đã ghi nhận học sinh {0} về sớm.", textBox_data_USER.Text));
                     }
                     else
                     {
@@ -1655,14 +1654,14 @@ namespace SrDemo
                 {
                     if (!_listStudentsResponse.Any(_ => _.card_code != null && _.card_code.Equals(textBox_data_EPC.Text)))
                     {
-                        MessageBox.Show($"Thẻ chưa được đăng ký!");
+                        MessageBox.Show("Thẻ chưa được đăng ký!");
                         return;
                     }
 
                     var response = _trackingPersonApiConsumer.XinVoTre(textBox_data_EPC.Text);
                     if (response.result)
                     {
-                        MessageBox.Show($"Đã ghi nhận học sinh {textBox_data_USER.Text} vào lớp trễ.");
+                        MessageBox.Show(string.Format( "Đã ghi nhận học sinh {0} vào lớp trễ.", textBox_data_USER.Text));
                     }
                     else
                     {
@@ -1685,9 +1684,9 @@ namespace SrDemo
             if (e.RowIndex != -1)
             {
                 var row = grvShow.Rows[e.RowIndex];
-                txbid.Text = row.Cells["id"].Value?.ToString();
-                textBoxHsCode.Text = row.Cells["HS_CODE"].Value?.ToString();
-                var hsClass = row.Cells["CLASS"].Value?.ToString();
+                txbid.Text = row.Cells["id"].Value.ToString();
+                textBoxHsCode.Text = row.Cells["HS_CODE"].Value.ToString();
+                var hsClass = row.Cells["CLASS"].Value.ToString();
                 if (!string.IsNullOrEmpty(hsClass))
                 {
                     comboBoxClass.Text = hsClass;
@@ -1696,12 +1695,12 @@ namespace SrDemo
                 {
                     comboBoxClass.SelectedIndex = 0;
                 }
-                var epc = row.Cells["EPC"].Value?.ToString();
+                var epc = row.Cells["EPC"].Value.ToString();
                 if (!string.IsNullOrEmpty(epc))
                 {
                     textBox_data_EPC.Text = epc;
                 }
-                textBox_data_USER.Text = row.Cells["USER"].Value?.ToString();
+                textBox_data_USER.Text = row.Cells["USER"].Value.ToString();
             }
         }
 

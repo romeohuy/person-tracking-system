@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TrackPerson.DAL.Entities;
+using SrDemo.Entities;
 using TrackPerson.Service;
 
 namespace SrDemo.Helpers
